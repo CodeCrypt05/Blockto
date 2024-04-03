@@ -16,7 +16,7 @@ class CoinMarketModel {
   String? name;
   String? image;
   double? currentPrice;
-  // int? marketCap;
+  int? marketCap;
   int? marketCapRank;
   // int? fullyDilutedValuation;
   double? totalVolume;
@@ -26,8 +26,8 @@ class CoinMarketModel {
   // double? priceChangePercentage24H;
   // int? marketCapChange24H;
   double? marketCapChangePercentage24H;
-  // double? totalSupply;
-  // int? maxSupply;
+  double? totalSupply;
+  double? maxSupply;
   // int? ath;
   // double? athChangePercentage;
   // DateTime? athDate;
@@ -44,7 +44,7 @@ class CoinMarketModel {
     this.name,
     this.image,
     this.currentPrice,
-    // this.marketCap,
+    this.marketCap,
     this.marketCapRank,
     // this.fullyDilutedValuation,
     this.totalVolume,
@@ -54,8 +54,8 @@ class CoinMarketModel {
     // this.priceChangePercentage24H,
     // this.marketCapChange24H,
     this.marketCapChangePercentage24H,
-    // this.totalSupply,
-    // this.maxSupply,
+    this.totalSupply,
+    this.maxSupply,
     // this.ath,
     // this.athChangePercentage,
     // this.athDate,
@@ -74,7 +74,7 @@ class CoinMarketModel {
         name: json["name"],
         image: json["image"],
         currentPrice: json["current_price"].toDouble(),
-        // marketCap: json["market_cap"],
+        marketCap: json["market_cap"],
         marketCapRank: json["market_cap_rank"],
         // fullyDilutedValuation: json["fully_diluted_valuation"],
         totalVolume: json["total_volume"]?.toDouble(),
@@ -86,8 +86,8 @@ class CoinMarketModel {
         // marketCapChange24H: json["market_cap_change_24h"],
         marketCapChangePercentage24H:
             json["market_cap_change_percentage_24h"]?.toDouble(),
-        // totalSupply: json["total_supply"]?.toDouble(),
-        // maxSupply: json["max_supply"],
+        totalSupply: json["total_supply"]?.toDouble(),
+        maxSupply: json["max_supply"]?.toDouble(),
         // ath: json["ath"],
         // athChangePercentage: json["ath_change_percentage"]?.toDouble(),
         // athDate:
@@ -112,7 +112,7 @@ class CoinMarketModel {
         "name": name,
         "image": image,
         "current_price": currentPrice,
-        // "market_cap": marketCap,
+        "market_cap": marketCap,
         "market_cap_rank": marketCapRank,
         // "fully_diluted_valuation": fullyDilutedValuation,
         "total_volume": totalVolume,
@@ -122,8 +122,8 @@ class CoinMarketModel {
         // "price_change_percentage_24h": priceChangePercentage24H,
         // "market_cap_change_24h": marketCapChange24H,
         "market_cap_change_percentage_24h": marketCapChangePercentage24H,
-        // "total_supply": totalSupply,
-        // "max_supply": maxSupply,
+        "total_supply": totalSupply,
+        "max_supply": maxSupply,
         // "ath": ath,
         // "ath_change_percentage": athChangePercentage,
         // "ath_date": athDate?.toIso8601String(),

@@ -1,7 +1,7 @@
 import 'package:blockto_app/presentation/home/home_controller.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/widget/appdrwaer.dart';
-import 'package:blockto_app/widget/bottom_appbar.dart';
+import 'package:blockto_app/widget/home_bottom_appbar.dart';
 import 'package:blockto_app/widget/coin_list_structure.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
