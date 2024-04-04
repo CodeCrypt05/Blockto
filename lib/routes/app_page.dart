@@ -1,5 +1,7 @@
 import 'package:blockto_app/presentation/home/home_binding.dart';
 import 'package:blockto_app/presentation/home/home_page.dart';
+import 'package:blockto_app/presentation/onboarding/onboarding_screen.dart';
+import 'package:blockto_app/presentation/onboarding/onboarding_screen_binding.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_binding.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_page.dart';
 import 'package:blockto_app/routes/app_routes.dart';
@@ -16,6 +18,11 @@ class AppPages {
       name: AppRoutes.selectedCoinScreen,
       page: () => SelectedCoinPage(),
       binding: SelectedCoinPageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.onBoardingScreen,
+      page: () => const OnBoardingScreen(),
+      binding: OnBoardingScreenBinding(),
     ),
   ];
 }
