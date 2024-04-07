@@ -156,7 +156,7 @@ class OnBoardingScreen extends StatelessWidget {
                   //skip text
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(AppRoutes.homeScreen);
+                      // Get.toNamed(AppRoutes.homeScreen);
                     },
                     child: Text(
                       "Skip",
