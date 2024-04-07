@@ -1,4 +1,5 @@
 import 'package:blockto_app/presentation/home/home_binding.dart';
+import 'package:blockto_app/presentation/home_page/home_screen_binding.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen_binding.dart';
 import 'package:blockto_app/routes/app_page.dart';
 import 'package:blockto_app/routes/app_routes.dart';
@@ -26,9 +27,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => GetMaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.onBoardingScreen,
+        initialRoute: AppRoutes.homeScreenPage,
         getPages: AppPages.getPages,
-        initialBinding: OnBoardingScreenBinding(),
+        initialBinding: HomeScreenBinding(),
         themeMode: ThemeMode.system,
         theme: ThemeData.dark(),
         darkTheme: TAppTheme.darkTheme,

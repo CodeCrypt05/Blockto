@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       drawer: const AppDrawerWidget(),
-      bottomNavigationBar: const BottomAppbarWidget(),
+      // bottomNavigationBar: const BottomAppbarWidget(),
       body: SingleChildScrollView(
         child: Obx(
           () => Column(
