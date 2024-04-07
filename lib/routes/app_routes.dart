@@ -2,5 +2,9 @@ class AppRoutes {
   // static const String homeScreen = "/homeScreen";
   static const String selectedCoinScreen = "/selectedCoinScreen";
   static const String onBoardingScreen = "/onBoardingScreen";
-  static const String homeScreenPage = "/homeScreen";
+  static const String homeScreen = "/homeScreen";
+
+  // ----------------------------------------------------------------
+  static const String HomePage = "/homePage";
+  static const String MarketPage = "/marketPage";
 }

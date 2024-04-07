@@ -1,4 +1,4 @@
-import 'package:blockto_app/presentation/home/home_controller.dart';
+import 'package:blockto_app/presentation/pages/home/home_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
