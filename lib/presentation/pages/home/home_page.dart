@@ -144,21 +144,25 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 16.h),
-                Container(
-                  height: 170.h,
-                  width: double.infinity,
-                  padding: EdgeInsets.all(3.h),
-                  // color: Colors.blue.withOpacity(0.3),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return TopCoinsCard(
-                        item: homePageController.coinMarketList[index],
-                      );
-                    },
-                  ),
-                ),
+                homePageController.isLoading.value
+                    ? const CircularProgressIndicator(
+                        color: Color(0xffF5C249),
+                      )
+                    : Container(
+                        height: 170.h,
+                        width: double.infinity,
+                        padding: EdgeInsets.all(3.h),
+                        // color: Colors.blue.withOpacity(0.3),
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 10,
+                          itemBuilder: (context, index) {
+                            return TopCoinsCard(
+                              item: homePageController.coinMarketList[index],
+                            );
+                          },
+                        ),
+                      ),
                 SizedBox(height: 14.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -181,15 +185,19 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return NewsCard(
-                        item: homePageController.newsDataList[index],
-                      );
-                    })
+                homePageController.isLoading.value
+                    ? const CircularProgressIndicator(
+                        color: Color(0xffF5C249),
+                      )
+                    : ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: 5,
+                        itemBuilder: (context, index) {
+                          return NewsCard(
+                            item: homePageController.newsDataList[index],
+                          );
+                        })
               ],
             ),
           ),

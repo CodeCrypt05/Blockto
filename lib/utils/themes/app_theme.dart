@@ -9,11 +9,18 @@ class TAppTheme {
     fontFamily: 'helvetica-regular',
     primaryColor: Colors.black,
     scaffoldBackgroundColor: Colors.black,
-    appBarTheme: AppBarTheme(color: Colors.black),
+    appBarTheme: appBarTheme,
     bottomAppBarTheme: BottomAppBarTheme(color: Colors.black),
     bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.black,
+    ),
+  );
+
+  static AppBarTheme appBarTheme = const AppBarTheme(
+    color: Colors.black,
+    iconTheme: IconThemeData(
+      color: Colors.white,
     ),
   );
 }

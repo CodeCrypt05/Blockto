@@ -41,4 +41,24 @@ class HomePageController extends GetxController {
       isLoading(false);
     }
   }
+
+  List<CoinMarketModel> getTopLosers(
+      List<CoinMarketModel> coinMarketList, int count) {
+    // Sort the list based on price change percentage in descending order
+    coinMarketList.sort((a, b) => (a.priceChangePercentage24H ?? 0)
+        .compareTo(b.priceChangePercentage24H ?? 0));
+
+    // Get the top `count` losers
+    return coinMarketList.take(count).toList();
+  }
+
+  List<CoinMarketModel> getTopGainers(
+      List<CoinMarketModel> coinMarketList, int count) {
+    // Sort the list based on price change percentage in descending order
+    coinMarketList.sort((a, b) => (b.priceChangePercentage24H ?? 0)
+        .compareTo(a.priceChangePercentage24H ?? 0));
+
+    // Get the top `count` gainers
+    return coinMarketList.take(count).toList();
+  }
 }

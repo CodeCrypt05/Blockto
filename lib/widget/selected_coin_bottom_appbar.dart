@@ -7,8 +7,8 @@ class SelectedCoinBottomAppbarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      surfaceTintColor: Colors.black,
-      color: Colors.black,
+      surfaceTintColor: Colors.grey.withOpacity(0.6),
+      color: Colors.grey.withOpacity(0.2),
       child: Container(
         height: kBottomNavigationBarHeight,
         margin: EdgeInsets.symmetric(horizontal: 10.w),
@@ -41,12 +41,12 @@ class SelectedCoinBottomAppbarWidget extends StatelessWidget {
               width: 90.w,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  color: Colors.purple,
+                  color: const Color(0xffF5C249),
                   borderRadius: BorderRadius.circular(18.r)),
               child: Text(
                 'Buy',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
                 ),

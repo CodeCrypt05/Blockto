@@ -20,8 +20,8 @@ class _CustomTabsBarState extends State<CustomTabsBar> {
   final List items = [
     "All",
     "Watchlist",
-    "Top gainers",
-    "Top lossers",
+    // "Top gainers",
+    // "Top lossers",
   ];
 
   @override
