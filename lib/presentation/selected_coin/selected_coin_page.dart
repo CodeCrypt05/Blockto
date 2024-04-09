@@ -88,7 +88,9 @@ class _SelectedCoinPageState extends State<SelectedCoinPage> {
                 child: Obx(
                   () => selectedCoinPageController.isLoading.value
                       ? const Center(
-                          child: CircularProgressIndicator(),
+                          child: CircularProgressIndicator(
+                            color: Color(0xffF5C249),
+                          ),
                         )
                       : SfCartesianChart(
                           trackballBehavior: trackballBehavior,

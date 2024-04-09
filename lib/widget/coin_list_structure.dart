@@ -67,15 +67,15 @@ class CoinListStrucure extends StatelessWidget {
                 lineColor: item.marketCapChangePercentage24H >= 0
                     ? Colors.green
                     : Colors.red,
-                fillMode: FillMode.below,
-                fillGradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: const [0.0, 0.7],
-                  colors: item.marketCapChangePercentage24H >= 0
-                      ? [Colors.green.shade800, Colors.green.shade200]
-                      : [Colors.red.shade800, Colors.red.shade200],
-                ),
+                // fillMode: FillMode.below,
+                // fillGradient: LinearGradient(
+                //   begin: Alignment.topCenter,
+                //   end: Alignment.bottomCenter,
+                //   stops: const [0.0, 0.7],
+                //   colors: item.marketCapChangePercentage24H >= 0
+                //       ? [Colors.green.shade800, Colors.green.shade200]
+                //       : [Colors.red.shade800, Colors.red.shade200],
+                // ),
               ),
             ),
             Column(

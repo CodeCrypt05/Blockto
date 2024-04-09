@@ -3,6 +3,7 @@ class BImages {
   static const String sentIc = "assets/icons/sent.svg";
   static const String reciveIc = "assets/icons/recive.svg";
   static const String buyIc = "assets/icons/buy.svg";
+  static const String notificationIc = "assets/icons/notification_ic.png";
 
   // static const String cryptoCard = "assets/images/crypto_card.svg";
   static const String bnbCoin = "assets/images/bnb_coin.svg";
@@ -26,4 +27,6 @@ class BImages {
 
   // --
   static const String cryptoCard = "assets/images/crypto_card.svg";
+  static const String smallBitCoin = "assets/images/small_bitcoin.png";
+  static const String bigBitCoin = "assets/images/big_bitcoin.png";
 }

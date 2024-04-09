@@ -23,7 +23,7 @@ class CoinMarketModel {
   double? high24H;
   double? low24H;
   double? priceChange24H;
-  // double? priceChangePercentage24H;
+  double? priceChangePercentage24H;
   // int? marketCapChange24H;
   double? marketCapChangePercentage24H;
   double? totalSupply;
@@ -51,7 +51,7 @@ class CoinMarketModel {
     this.high24H,
     this.low24H,
     this.priceChange24H,
-    // this.priceChangePercentage24H,
+    this.priceChangePercentage24H,
     // this.marketCapChange24H,
     this.marketCapChangePercentage24H,
     this.totalSupply,
@@ -81,8 +81,8 @@ class CoinMarketModel {
         high24H: json["high_24h"]?.toDouble(),
         low24H: json["low_24h"]?.toDouble(),
         priceChange24H: json["price_change_24h"]?.toDouble(),
-        // priceChangePercentage24H:
-        //     json["price_change_percentage_24h"]?.toDouble(),
+        priceChangePercentage24H:
+            json["price_change_percentage_24h"]?.toDouble(),
         // marketCapChange24H: json["market_cap_change_24h"],
         marketCapChangePercentage24H:
             json["market_cap_change_percentage_24h"]?.toDouble(),
@@ -119,7 +119,7 @@ class CoinMarketModel {
         "high_24h": high24H,
         "low_24h": low24H,
         "price_change_24h": priceChange24H,
-        // "price_change_percentage_24h": priceChangePercentage24H,
+        "price_change_percentage_24h": priceChangePercentage24H,
         // "market_cap_change_24h": marketCapChange24H,
         "market_cap_change_percentage_24h": marketCapChangePercentage24H,
         "total_supply": totalSupply,
