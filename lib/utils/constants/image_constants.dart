@@ -29,4 +29,7 @@ class BImages {
   static const String cryptoCard = "assets/images/crypto_card.svg";
   static const String smallBitCoin = "assets/images/small_bitcoin.png";
   static const String bigBitCoin = "assets/images/big_bitcoin.png";
+
+  //---
+  static const String emptyBox = "assets/images/empty_box.png";
 }

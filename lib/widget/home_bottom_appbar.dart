@@ -38,13 +38,15 @@ class BottomAppbarWidget extends StatelessWidget {
   ) {
     return Obx(
       () => InkWell(
+        customBorder:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(42.r)),
         onTap: () {
           print(index);
           homeController.changeTabIndex(index);
         },
         child: Container(
           // color: Colors.blue.withOpacity(0.3),
-          padding: EdgeInsets.symmetric(horizontal: 8.h),
+          padding: EdgeInsets.symmetric(horizontal: 14.h),
           height: 50.h,
           child: Column(
             children: [

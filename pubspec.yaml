@@ -42,6 +42,7 @@ dependencies:
   chart_sparkline: ^1.0.15+1
   syncfusion_flutter_charts: ^25.1.37
   smooth_page_indicator: ^1.1.0
+  awesome_circular_chart: ^1.0.0
 
 dev_dependencies:
   flutter_test:
