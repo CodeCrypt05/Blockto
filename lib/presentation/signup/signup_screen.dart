@@ -1,8 +1,10 @@
 import 'package:blockto_app/presentation/signup/signup_screen_controller.dart';
 import 'package:blockto_app/routes/app_routes.dart';
+import 'package:blockto_app/utils/components/loader.dart';
 import 'package:blockto_app/utils/constants/colors.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
+import 'package:blockto_app/widget/auth_button/auth_buttons.dart';
 import 'package:blockto_app/widget/common/custom_button.dart';
 import 'package:blockto_app/widget/common/custom_textfield.dart';
 import 'package:flutter/gestures.dart';
@@ -184,6 +186,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                               color: const Color(0xffF5C249).withOpacity(0.8),
                             ),
                             validator: validatePassword,
+                            isPassword: signUpController.hidePassword.value,
                           ),
                         ],
                       ),
@@ -240,17 +243,16 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
 
                   //-- create ac button
 
-                  CustomButton(
+                  AuthButton(
                     label: "Create an account",
                     icons: const Icon(
                       Icons.arrow_forward,
                       color: Colors.black,
                     ),
-                    onPressed: () {
-                      if (signUpController.signUpFormKey.currentState!
-                          .validate()) {
-                        print("Sign Up");
-                      }
+                    onPressed: () async {
+                      Loader.showLoader();
+                      await signUpController.onCreateAccount();
+                      Get.back();
                     },
                   ),
 

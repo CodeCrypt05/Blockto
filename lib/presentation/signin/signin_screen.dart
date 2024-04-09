@@ -1,7 +1,9 @@
 import 'package:blockto_app/presentation/signin/signin_screen_controller.dart';
 import 'package:blockto_app/routes/app_routes.dart';
+import 'package:blockto_app/utils/components/loader.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
+import 'package:blockto_app/widget/auth_button/auth_buttons.dart';
 import 'package:blockto_app/widget/common/custom_button.dart';
 import 'package:blockto_app/widget/common/custom_textfield.dart';
 import 'package:flutter/gestures.dart';
@@ -111,12 +113,11 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
                           ),
                           SizedBox(height: 6.h),
                           CustomTextField(
-                            // isPassword: isPasswordVisible,
+                            isPassword: signInController.hidePassword.value,
                             maxLines: 1,
                             controller: signInController.passwordController,
                             textAlignVertical: TextAlignVertical.bottom,
                             hintText: "Enter your password",
-
                             suffixIcon: GestureDetector(
                               onTap: () => signInController.hidePassword.value =
                                   !signInController.hidePassword.value,
@@ -213,15 +214,16 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
 
                   //-- create ac button
 
-                  CustomButton(
-                    label: "Create an account",
+                  AuthButton(
+                    label: "SignIn",
                     icons: const Icon(
                       Icons.arrow_forward,
                       color: Colors.black,
                     ),
-                    onPressed: () {
-                      if (signInController.signInFormKey.currentState!
-                          .validate()) {}
+                    onPressed: () async {
+                      Loader.showLoader();
+                      await signInController.onSigninClicked();
+                      Get.back();
                     },
                   ),
 
@@ -285,5 +287,11 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
         width: 21.w,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    signInController.signInFormKey.currentState!.dispose();
+    super.dispose();
   }
 }

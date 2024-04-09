@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "332557336108",
+    "project_id": "blockto-7637d",
+    "storage_bucket": "blockto-7637d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332557336108:android:716ed18dfb7287667a9b89",
+        "android_client_info": {
+          "package_name": "com.example.blockto_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYxELep36d4_zTtFZCM3H0ikQgO66E5LI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

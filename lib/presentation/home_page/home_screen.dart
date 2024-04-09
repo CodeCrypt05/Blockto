@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
         } else if (homeScreenController.tabIndex.value == 2) {
           return PortfolioPage();
         } else if (homeScreenController.tabIndex.value == 3) {
-          return const SettingPage();
+          return SettingPage();
         }
 
         return const SizedBox();

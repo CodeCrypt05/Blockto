@@ -1,14 +1,22 @@
+import 'package:blockto_app/firebase_options.dart';
+import 'package:blockto_app/presentation/home_page/home_screen.dart';
 import 'package:blockto_app/presentation/home_page/home_screen_binding.dart';
-import 'package:blockto_app/presentation/onboarding/onboarding_screen_binding.dart';
-import 'package:blockto_app/presentation/signup/signup_screen_binding.dart';
+
+import 'package:blockto_app/presentation/signin/signin_screen.dart';
+import 'package:blockto_app/presentation/signin/signin_screen_binding.dart';
+
 import 'package:blockto_app/routes/app_page.dart';
 import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/utils/themes/app_theme.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -27,13 +35,21 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => GetMaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.signupScreen,
+        // initialRoute: AppRoutes.signinScreen,
         getPages: AppPages.getPages,
-        initialBinding: SignUpScreenBinding(),
+        initialBinding: SignInScreenBinding(),
         themeMode: ThemeMode.system,
         theme: ThemeData.dark(),
         darkTheme: TAppTheme.darkTheme,
-        // home: ContactsPage(),
+        home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return HomeScreen();
+            }
+            return const SignInScreen();
+          },
+        ),
       ),
     );
   }

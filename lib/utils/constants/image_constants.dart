@@ -4,6 +4,7 @@ class BImages {
   static const String reciveIc = "assets/icons/recive.svg";
   static const String buyIc = "assets/icons/buy.svg";
   static const String notificationIc = "assets/icons/notification_ic.png";
+  static const String logoutIc = "assets/icons/logout_ic.svg";
 
   // static const String cryptoCard = "assets/images/crypto_card.svg";
   static const String bnbCoin = "assets/images/bnb_coin.svg";

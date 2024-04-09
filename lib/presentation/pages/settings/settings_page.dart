@@ -1,8 +1,16 @@
+import 'package:blockto_app/presentation/pages/settings/settings_page_controller.dart';
+import 'package:blockto_app/routes/app_routes.dart';
+import 'package:blockto_app/utils/components/bottom_sheet_popup.dart';
+import 'package:blockto_app/utils/constants/colors.dart';
+import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class SettingPage extends StatelessWidget {
-  const SettingPage({super.key});
+  SettingPage({super.key});
+
+  final settingPageController = Get.find<SettingPageController>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,14 +60,14 @@ class SettingPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 14.h),
-          settingTile(Icons.person_3_outlined, 'Edit Profile'),
+          settingTile(Icons.person_3_outlined, 'Edit Profile', () {}),
 
           Divider(
             color: Colors.grey.withOpacity(0.2),
             thickness: 1.4,
           ),
 
-          settingTile(Icons.lock_open_rounded, 'Change Password'),
+          settingTile(Icons.lock_open_rounded, 'Change Password', () {}),
           //----------------------------------------------------------------
           SizedBox(height: 26.h),
           Text(
@@ -71,14 +79,14 @@ class SettingPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 14.h),
-          settingTile(Icons.info_outline_rounded, 'About Us'),
+          settingTile(Icons.info_outline_rounded, 'About Us', () {}),
 
           Divider(
             color: Colors.grey.withOpacity(0.2),
             thickness: 1.4,
           ),
 
-          settingTile(Icons.share, 'Share the app'),
+          settingTile(Icons.share, 'Share the app', () {}),
           //----------------------------------------------------------------
           SizedBox(height: 26.h),
           Text(
@@ -90,16 +98,42 @@ class SettingPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 14.h),
-          settingTile(Icons.logout_outlined, 'Logout'),
+          settingTile(Icons.logout_outlined, 'Logout', () {
+            CustomBottomSheetPopup().showBottomSheetPopup(
+              context: context,
+              ic: BImages.logoutIc,
+              title: "Logout?",
+              description: "Are you sure you want to logout of the app? ",
+              leftButtonName: "No, go back",
+              rightButtonName: "Logout",
+              leftBtnBackgroundColor: Colors.transparent,
+              rightBtnBackgroundColor: TColors.secondary,
+              leftBorderColor: Colors.grey.withOpacity(0.4),
+              rightBorderColor: Colors.transparent,
+              leftTextColor: TColors.white,
+              rightTextColor: TColors.black,
+              leftBoxShadowColor: Colors.transparent,
+              rightBoxShadowColor: TColors.secondary.withOpacity(0.6),
+              leftButtonHeight: 53.h,
+              rightButtonHeight: 50.h,
+              saveActionButtonPressed: () async {
+                Get.back();
+                await settingPageController.signOut();
+              },
+              cancelButtonPressed: () {
+                Get.back();
+              },
+            );
+          }),
           SizedBox(height: 8.h),
         ],
       ),
     );
   }
 
-  Widget settingTile(IconData icons, String label) {
+  Widget settingTile(IconData icons, String label, VoidCallback onPressed) {
     return InkWell(
-      onTap: () {},
+      onTap: onPressed,
       customBorder:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: Container(

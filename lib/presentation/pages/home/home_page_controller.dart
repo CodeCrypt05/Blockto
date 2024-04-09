@@ -1,5 +1,5 @@
-import 'package:blockto_app/data/services/coin_market_service.dart';
-import 'package:blockto_app/data/services/news_service.dart';
+import 'package:blockto_app/data/api_services/coin_market_service.dart';
+import 'package:blockto_app/data/api_services/news_service.dart';
 import 'package:blockto_app/models/coin_market_model.dart';
 import 'package:blockto_app/models/news_model/result.dart';
 import 'package:get/get.dart';
