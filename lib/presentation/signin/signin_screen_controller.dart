@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUpScreenController extends GetxController {
-  GlobalKey<FormState> signUpFormKey = GlobalKey<FormState>();
+class SignInScreenController extends GetxController {
+  GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -11,7 +11,7 @@ class SignUpScreenController extends GetxController {
 
   @override
   void dispose() {
-    signUpFormKey.currentState!.dispose();
+    signInFormKey.currentState!.dispose();
     nameController.dispose();
     emailController.dispose();
     passwordController.dispose();

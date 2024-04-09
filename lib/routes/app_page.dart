@@ -12,6 +12,8 @@ import 'package:blockto_app/presentation/pages/settings/settings_page.dart';
 import 'package:blockto_app/presentation/pages/settings/settings_page_bindings.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_binding.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_page.dart';
+import 'package:blockto_app/presentation/signin/signin_screen.dart';
+import 'package:blockto_app/presentation/signin/signin_screen_binding.dart';
 import 'package:blockto_app/presentation/signup/signup_screen.dart';
 import 'package:blockto_app/presentation/signup/signup_screen_binding.dart';
 import 'package:blockto_app/routes/app_routes.dart';
@@ -59,8 +61,13 @@ class AppPages {
     //----- Auth Screen
     GetPage(
       name: AppRoutes.signupScreen,
-      page: () => SignUpScreen(),
+      page: () => const SignUpScreen(),
       binding: SignUpScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.signinScreen,
+      page: () => const SignInScreen(),
+      binding: SignInScreenBinding(),
     ),
   ];
 }

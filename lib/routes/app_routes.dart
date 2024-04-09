@@ -12,4 +12,5 @@ class AppRoutes {
 
   // ---- Auth -------------------------
   static const String signupScreen = "/signupScreen";
+  static const String signinScreen = "/signinScreen";
 }

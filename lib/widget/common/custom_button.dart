@@ -20,11 +20,11 @@ class CustomButton extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 50.h,
-        margin: EdgeInsets.symmetric(horizontal: 30.w),
+        margin: EdgeInsets.symmetric(horizontal: 10.w),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14.r),
-          color: Colors.black,
+          color: Color(0xffF5C249),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +34,7 @@ class CustomButton extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
             SizedBox(width: 8.w),

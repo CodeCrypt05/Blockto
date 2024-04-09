@@ -1,6 +1,5 @@
-import 'package:blockto_app/presentation/signup/signup_screen_controller.dart';
+import 'package:blockto_app/presentation/signin/signin_screen_controller.dart';
 import 'package:blockto_app/routes/app_routes.dart';
-import 'package:blockto_app/utils/constants/colors.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
 import 'package:blockto_app/widget/common/custom_button.dart';
@@ -11,15 +10,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SignInScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
-  final signUpController = Get.find<SignUpScreenController>();
+class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
+  final signInController = Get.find<SignInScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                 children: [
                   SizedBox(height: 84.h),
                   Text(
-                    "Create Account",
+                    "Welcome to Blockto",
                     style: TextStyle(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.w600,
@@ -46,7 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                     ),
                   ),
                   Text(
-                    "Signup to get started",
+                    "Enter your details to log in.",
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w400,
@@ -56,49 +55,10 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 10.w),
                     child: Form(
-                      key: signUpController.signUpFormKey,
+                      key: signInController.signInFormKey,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          //-- User name field
-
-                          SizedBox(height: 36.h),
-                          Text(
-                            "Your name",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xffF5C249).withOpacity(0.8),
-                            ),
-                          ),
-                          SizedBox(height: 6.h),
-                          CustomTextField(
-                            maxLines: 1,
-                            controller: signUpController.nameController,
-                            textAlignVertical: TextAlignVertical.bottom,
-                            hintText: "Enter your name",
-                            suffixIcon: Container(
-                              width: double.minPositive,
-                              alignment: Alignment.centerLeft,
-                              child: Icon(
-                                Icons.person_outline,
-                                size: 20.h,
-                                color: const Color(0xffF5C249).withOpacity(0.8),
-                              ),
-                            ),
-                            hintStyle: TextStyle(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                              color: const Color(0xffF5C249).withOpacity(0.6),
-                            ),
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                              color: const Color(0xffF5C249).withOpacity(0.8),
-                            ),
-                            validator: validatedName,
-                          ),
-
                           //-- email  field
 
                           SizedBox(height: 16.h),
@@ -113,7 +73,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                           SizedBox(height: 6.h),
                           CustomTextField(
                             maxLines: 1,
-                            controller: signUpController.emailController,
+                            controller: signInController.emailController,
                             textAlignVertical: TextAlignVertical.bottom,
                             hintText: "Enter your email",
                             suffixIcon: Container(
@@ -153,18 +113,18 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                           CustomTextField(
                             // isPassword: isPasswordVisible,
                             maxLines: 1,
-                            controller: signUpController.passwordController,
+                            controller: signInController.passwordController,
                             textAlignVertical: TextAlignVertical.bottom,
                             hintText: "Enter your password",
 
                             suffixIcon: GestureDetector(
-                              onTap: () => signUpController.hidePassword.value =
-                                  !signUpController.hidePassword.value,
+                              onTap: () => signInController.hidePassword.value =
+                                  !signInController.hidePassword.value,
                               child: Container(
                                 width: double.minPositive,
                                 alignment: Alignment.centerLeft,
                                 child: Icon(
-                                  signUpController.hidePassword.value
+                                  signInController.hidePassword.value
                                       ? Icons.visibility_off_outlined
                                       : Icons.visibility_outlined,
                                   size: 20.h,
@@ -185,6 +145,19 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                             ),
                             validator: validatePassword,
                           ),
+                          SizedBox(height: 16.h),
+                          SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              'Forgot Password',
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w500,
+                                color: const Color(0xffF5C249).withOpacity(0.8),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -197,7 +170,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                     children: [
                       Expanded(
                         child: Divider(
-                          color: Color(0xffF5C249).withOpacity(0.4),
+                          color: const Color(0xffF5C249).withOpacity(0.4),
                           thickness: 1.4,
                         ),
                       ),
@@ -208,13 +181,13 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xffF5C249).withOpacity(0.8),
+                            color: const Color(0xffF5C249).withOpacity(0.8),
                           ),
                         ),
                       ),
                       Expanded(
                         child: Divider(
-                          color: Color(0xffF5C249).withOpacity(0.4),
+                          color: const Color(0xffF5C249).withOpacity(0.4),
                           thickness: 1.4,
                         ),
                       ),
@@ -247,10 +220,8 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                       color: Colors.black,
                     ),
                     onPressed: () {
-                      if (signUpController.signUpFormKey.currentState!
-                          .validate()) {
-                        print("Sign Up");
-                      }
+                      if (signInController.signInFormKey.currentState!
+                          .validate()) {}
                     },
                   ),
 
@@ -267,20 +238,18 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xffF5C249).withOpacity(0.6),
+                          color: const Color(0xffF5C249).withOpacity(0.6),
                         ),
                         children: [
                           TextSpan(
-                            text: "Sign in",
+                            text: "Sign up",
                             style: const TextStyle(
                               color: Color(0xffF5C249),
                               fontWeight: FontWeight.w600,
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                print("Tap sign up");
-
-                                Get.offNamed(AppRoutes.signinScreen);
+                                Get.offNamed(AppRoutes.signupScreen);
                               },
                           ),
                         ],
@@ -306,7 +275,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
         // color: Color(0xffF5C249).withOpacity(0.1),
         borderRadius: BorderRadius.circular(14.r),
         border: Border.all(
-          color: Color(0xffF5C249).withOpacity(0.4),
+          color: const Color(0xffF5C249).withOpacity(0.4),
         ),
       ),
       child: SvgPicture.asset(

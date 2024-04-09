@@ -101,22 +101,25 @@ class CustomTextField extends StatelessWidget {
         hintStyle: hintStyle,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius.r)),
-          borderSide: const BorderSide(color: Color(0XFFCED4F7), width: 1.6),
+          borderSide:
+              BorderSide(color: Color(0xffF5C249).withOpacity(0.4), width: 1.6),
         ),
         disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(radius.r)),
             borderSide: const BorderSide(color: TColors.primary, width: 1.0)),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius.r)),
-          borderSide: const BorderSide(color: Color(0xffDB8C09), width: 1.6),
+          borderSide: BorderSide(color: Color(0xffF5C249), width: 1.6),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius.r)),
-          borderSide: const BorderSide(color: Color(0XFFCED4F7), width: 1.0),
+          borderSide:
+              BorderSide(color: Color(0xffF5C249).withOpacity(0.4), width: 1.0),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius)),
-          borderSide: const BorderSide(color: TColors.primary, width: 1.0),
+          borderSide:
+              BorderSide(color: Color(0xffF5C249).withOpacity(0.4), width: 1.0),
         ),
       ),
     );
