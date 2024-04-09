@@ -18,18 +18,19 @@ class OnBoardingScreenController extends GetxController {
         title1: "Buy the best",
         title2: "crypto in the market",
         subtitle:
-            "Track the best cryptos and coins of your choice for trading. The best crypto coins out there are here on Blockto"),
+            "Ready to invest in top-performing cryptocurrencies? Our platform offers easy, secure purchases of the best digital assets"),
     OnBoardingDataModel(
         assets: BImages.onboarding3,
-        title1: "Enjoy\nInteractive",
-        title2: "Quizzes",
-        subtitle: "Answer entertaining questions,\nchallenge yourself!"),
+        title1: "Fortified",
+        title2: "Wallet Protection",
+        subtitle:
+            "Safeguard your assets with our secure wallet solution. Your digital wealth is shielded by advanced encryption."),
     OnBoardingDataModel(
         assets: BImages.onboarding4,
-        title1: "Buy the best",
-        title2: "crypto in the market",
+        title1: "GuardianShield",
+        title2: "Ultimate Security Suite",
         subtitle:
-            "Track the best cryptos and coins of your choice for trading. The best crypto coins out there are here on Blockto"),
+            "Experience unparalleled protection with GuardianShield, our advanced encryption and multi-layered security system."),
   ];
 
   void nextButtonClicked() {
