@@ -1,4 +1,4 @@
-import 'package:blockto_app/data/services/coin_chart_service.dart';
+import 'package:blockto_app/data/api_services/coin_chart_service.dart';
 import 'package:blockto_app/models/coin_chart_model.dart';
 import 'package:get/get.dart';
 

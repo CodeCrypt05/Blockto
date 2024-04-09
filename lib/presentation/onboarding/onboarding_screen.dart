@@ -1,5 +1,4 @@
 import 'package:blockto_app/presentation/onboarding/onboarding_screen_controller.dart';
-import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/widget/wide_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

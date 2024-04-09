@@ -43,8 +43,11 @@ dependencies:
   syncfusion_flutter_charts: ^25.1.37
   smooth_page_indicator: ^1.1.0
   awesome_circular_chart: ^1.0.0
-  firebase_auth: ^4.19.0
+  firebase_auth: ^4.19.1
   image_picker: ^1.0.7
+  firebase_core: ^2.29.0
+  firebase_storage: ^11.7.1
+  cloud_firestore: ^4.16.1
 
 dev_dependencies:
   flutter_test:
