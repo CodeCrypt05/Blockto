@@ -3,10 +3,8 @@ import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/widget/wide_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:svg_flutter/svg_flutter.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
