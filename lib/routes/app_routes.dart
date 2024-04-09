@@ -5,6 +5,11 @@ class AppRoutes {
   static const String homeScreen = "/homeScreen";
 
   // ----------------------------------------------------------------
-  static const String HomePage = "/homePage";
-  static const String MarketPage = "/marketPage";
+  static const String homePage = "/homePage";
+  static const String marketPage = "/marketPage";
+  static const String portfolioPage = "/portfolioPage";
+  static const String settingPage = "/settingPage";
+
+  // ---- Auth -------------------------
+  static const String signupScreen = "/signupScreen";
 }
