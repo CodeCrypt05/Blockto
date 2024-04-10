@@ -221,9 +221,12 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
                       color: Colors.black,
                     ),
                     onPressed: () async {
-                      Loader.showLoader();
-                      await signInController.onSigninClicked();
-                      Get.back();
+                      if (signInController.signInFormKey.currentState!
+                          .validate()) {
+                        Loader.showLoader();
+                        await signInController.onSigninClicked();
+                        Get.back();
+                      }
                     },
                   ),
 
@@ -291,7 +294,7 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
 
   @override
   void dispose() {
-    signInController.signInFormKey.currentState!.dispose();
+    // signInController.signInFormKey.currentState!.dispose();
     super.dispose();
   }
 }

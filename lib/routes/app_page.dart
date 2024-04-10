@@ -16,11 +16,14 @@ import 'package:blockto_app/presentation/signin/signin_screen.dart';
 import 'package:blockto_app/presentation/signin/signin_screen_binding.dart';
 import 'package:blockto_app/presentation/signup/signup_screen.dart';
 import 'package:blockto_app/presentation/signup/signup_screen_binding.dart';
+import 'package:blockto_app/presentation/splash/splash_screen.dart';
+import 'package:blockto_app/presentation/splash/splash_screen_binding.dart';
 import 'package:blockto_app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class AppPages {
   static final List<GetPage> getPages = [
+    // -- Bottom Tab pages
     GetPage(
       name: AppRoutes.homePage,
       page: () => HomePage(),
@@ -41,7 +44,7 @@ class AppPages {
       page: () => SettingPage(),
       binding: SettingPageBindings(),
     ),
-    //----------------------------------------------------------------
+    //------Screens --------------------------------------------------------
     GetPage(
       name: AppRoutes.selectedCoinScreen,
       page: () => SelectedCoinPage(),
@@ -56,6 +59,11 @@ class AppPages {
       name: AppRoutes.homeScreen,
       page: () => HomeScreen(),
       binding: HomeScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.splashScreen,
+      page: () => const SplashScreen(),
+      binding: SplashScreenBinding(),
     ),
 
     //----- Auth Screen

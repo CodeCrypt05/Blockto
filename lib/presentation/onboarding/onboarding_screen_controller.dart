@@ -1,4 +1,5 @@
 import 'package:blockto_app/presentation/onboarding/model/onboarding_data_model.dart';
+import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,7 +39,7 @@ class OnBoardingScreenController extends GetxController {
       currentIndex.value++;
       controller.jumpToPage(currentIndex.value);
     } else {
-      // Get.toNamed(AppRoutes.loginScreen);
+      Get.offNamed(AppRoutes.signinScreen);
     }
   }
 
