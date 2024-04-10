@@ -33,6 +33,7 @@ class BImages {
 
   //---
   static const String emptyBox = "assets/images/empty_box.png";
+  static const String appLogo = "assets/images/app_logo.svg";
 
   // -- Auth Assets
   static const String signInIllustration =

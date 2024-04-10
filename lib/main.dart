@@ -4,6 +4,8 @@ import 'package:blockto_app/presentation/home_page/home_screen_binding.dart';
 
 import 'package:blockto_app/presentation/signin/signin_screen.dart';
 import 'package:blockto_app/presentation/signin/signin_screen_binding.dart';
+import 'package:blockto_app/presentation/splash/splash_screen.dart';
+import 'package:blockto_app/presentation/splash/splash_screen_binding.dart';
 
 import 'package:blockto_app/routes/app_page.dart';
 import 'package:blockto_app/routes/app_routes.dart';
@@ -35,21 +37,21 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => GetMaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        // initialRoute: AppRoutes.signinScreen,
+        initialRoute: AppRoutes.splashScreen,
         getPages: AppPages.getPages,
-        initialBinding: SignInScreenBinding(),
+        initialBinding: SplashScreenBinding(),
         themeMode: ThemeMode.system,
         theme: ThemeData.dark(),
         darkTheme: TAppTheme.darkTheme,
-        home: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return HomeScreen();
-            }
-            return const SignInScreen();
-          },
-        ),
+        // home: StreamBuilder(
+        //   stream: FirebaseAuth.instance.authStateChanges(),
+        //   builder: (context, snapshot) {
+        //     if (snapshot.hasData) {
+        //       return HomeScreen();
+        //     }
+        //     return const SplashScreen();
+        //   },
+        // ),
       ),
     );
   }
