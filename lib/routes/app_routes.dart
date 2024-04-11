@@ -4,6 +4,7 @@ class AppRoutes {
   static const String onBoardingScreen = "/onBoardingScreen";
   static const String homeScreen = "/homeScreen";
   static const String splashScreen = "/splashScreen";
+  static const String paperCryptoScreen = "/paperCryptoScreen";
 
   // ----------------------------------------------------------------
   static const String homePage = "/homePage";

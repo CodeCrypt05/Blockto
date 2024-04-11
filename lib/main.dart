@@ -1,16 +1,9 @@
 import 'package:blockto_app/firebase_options.dart';
-import 'package:blockto_app/presentation/home_page/home_screen.dart';
-import 'package:blockto_app/presentation/home_page/home_screen_binding.dart';
-
-import 'package:blockto_app/presentation/signin/signin_screen.dart';
-import 'package:blockto_app/presentation/signin/signin_screen_binding.dart';
-import 'package:blockto_app/presentation/splash/splash_screen.dart';
 import 'package:blockto_app/presentation/splash/splash_screen_binding.dart';
 
 import 'package:blockto_app/routes/app_page.dart';
 import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/utils/themes/app_theme.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
