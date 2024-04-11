@@ -14,9 +14,35 @@ class SplashScreenController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 1000));
     user = FirebaseAuth.instance.authStateChanges();
 
-    if (user != null) {
-      Get.offNamed(AppRoutes.homeScreen);
-    }
-    Get.offNamed(AppRoutes.onBoardingScreen);
+    FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (user != null) {
+        Get.offNamed(AppRoutes.homeScreen);
+      } else {
+        Get.offNamed(AppRoutes.onBoardingScreen);
+      }
+    });
   }
 }
+
+
+
+//   final FirebaseAuth _auth = FirebaseService().auth;
+
+//   @override
+//   void onReady() {
+//     super.onReady();
+
+//     _user = Rx<User?>(_auth.currentUser);
+//     // our user would be notified
+//     _user.bindStream(_auth.userChanges());
+//     ever(_user, _initialScreen);
+//   }
+
+//   _initialScreen(User? user) {
+//     if (user == null) {
+//       Get.offAll(() => const SignInScreen());
+//     } else {
+//       Get.offAll(() => HomeScreen());
+//     }
+//   }
+// }

@@ -14,119 +14,120 @@ class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CircleAvatar(
-                radius: 40.r,
-                backgroundColor: Colors.amberAccent,
+    return SingleChildScrollView(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20.h),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  radius: 40.r,
+                  backgroundColor: Colors.amberAccent,
+                ),
+                SizedBox(width: 26.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Jhon Wick',
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.9),
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    Text(
+                      'jhonwick@gmail.com',
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.5),
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w200,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: 40.h),
+            Text(
+              'Persnol',
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.5),
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w400,
               ),
-              SizedBox(width: 26.w),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Jhon Wick',
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.9),
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  Text(
-                    'jhonwick@gmail.com',
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.5),
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w200,
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-          SizedBox(height: 40.h),
-          Text(
-            'Persnol',
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.5),
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
             ),
-          ),
-          SizedBox(height: 14.h),
-          settingTile(Icons.person_3_outlined, 'Edit Profile', () {}),
+            SizedBox(height: 14.h),
+            settingTile(Icons.person_3_outlined, 'Edit Profile', () {}),
 
-          Divider(
-            color: Colors.grey.withOpacity(0.2),
-            thickness: 1.4,
-          ),
+            Divider(color: Colors.grey.withOpacity(0.2), thickness: 1.4),
 
-          settingTile(Icons.lock_open_rounded, 'Change Password', () {}),
-          //----------------------------------------------------------------
-          SizedBox(height: 26.h),
-          Text(
-            'Other',
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.5),
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
+            settingTile(Icons.lock_open_rounded, 'Change Password', () {}),
+            //----------------------------------------------------------------
+            SizedBox(height: 26.h),
+            Text(
+              'Other',
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.5),
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w400,
+              ),
             ),
-          ),
-          SizedBox(height: 14.h),
-          settingTile(Icons.info_outline_rounded, 'About Us', () {}),
+            SizedBox(height: 14.h),
 
-          Divider(
-            color: Colors.grey.withOpacity(0.2),
-            thickness: 1.4,
-          ),
+            settingTile(Icons.attach_money, 'Paper Crypto',
+                () => Get.toNamed(AppRoutes.paperCryptoScreen)),
+            Divider(color: Colors.grey.withOpacity(0.2), thickness: 1.4),
 
-          settingTile(Icons.share, 'Share the app', () {}),
-          //----------------------------------------------------------------
-          SizedBox(height: 26.h),
-          Text(
-            'Action',
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.5),
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
+            settingTile(Icons.info_outline_rounded, 'About Us', () {}),
+
+            Divider(color: Colors.grey.withOpacity(0.2), thickness: 1.4),
+
+            settingTile(Icons.share, 'Share the app', () {}),
+            //----------------------------------------------------------------
+            SizedBox(height: 26.h),
+            Text(
+              'Action',
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.5),
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w400,
+              ),
             ),
-          ),
-          SizedBox(height: 14.h),
-          settingTile(Icons.logout_outlined, 'Logout', () {
-            CustomBottomSheetPopup().showBottomSheetPopup(
-              context: context,
-              ic: BImages.logoutIc,
-              title: "Logout?",
-              description: "Are you sure you want to logout of the app? ",
-              leftButtonName: "No, go back",
-              rightButtonName: "Logout",
-              leftBtnBackgroundColor: Colors.transparent,
-              rightBtnBackgroundColor: TColors.secondary,
-              leftBorderColor: Colors.grey.withOpacity(0.4),
-              rightBorderColor: Colors.transparent,
-              leftTextColor: TColors.white,
-              rightTextColor: TColors.black,
-              leftBoxShadowColor: Colors.transparent,
-              rightBoxShadowColor: TColors.secondary.withOpacity(0.6),
-              leftButtonHeight: 53.h,
-              rightButtonHeight: 50.h,
-              saveActionButtonPressed: () async {
-                Get.back();
-                await settingPageController.signOut();
-              },
-              cancelButtonPressed: () {
-                Get.back();
-              },
-            );
-          }),
-          SizedBox(height: 8.h),
-        ],
+            SizedBox(height: 14.h),
+            settingTile(Icons.logout_outlined, 'Logout', () {
+              CustomBottomSheetPopup().showBottomSheetPopup(
+                context: context,
+                ic: BImages.logoutIc,
+                title: "Logout?",
+                description: "Are you sure you want to logout of the app? ",
+                leftButtonName: "No, go back",
+                rightButtonName: "Logout",
+                leftBtnBackgroundColor: Colors.transparent,
+                rightBtnBackgroundColor: TColors.secondary,
+                leftBorderColor: Colors.grey.withOpacity(0.4),
+                rightBorderColor: Colors.transparent,
+                leftTextColor: TColors.white,
+                rightTextColor: TColors.black,
+                leftBoxShadowColor: Colors.transparent,
+                rightBoxShadowColor: TColors.secondary.withOpacity(0.6),
+                leftButtonHeight: 53.h,
+                rightButtonHeight: 50.h,
+                saveActionButtonPressed: () async {
+                  Get.back();
+                  await settingPageController.signOut();
+                },
+                cancelButtonPressed: () {
+                  Get.back();
+                },
+              );
+            }),
+            SizedBox(height: 8.h),
+          ],
+        ),
       ),
     );
   }

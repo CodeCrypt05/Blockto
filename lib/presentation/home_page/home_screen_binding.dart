@@ -9,9 +9,9 @@ class HomeScreenBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => HomeScreenController());
-    // Get.lazyPut(() => HomePageController());
-    // Get.lazyPut(() => MarketPageController());
-    // Get.lazyPut(() => PortfolioPageBinding());
-    // Get.lazyPut(() => SettingPageBindings());
+    Get.lazyPut(() => HomePageController());
+    Get.lazyPut(() => MarketPageController());
+    Get.lazyPut(() => PortfolioPageBinding());
+    Get.lazyPut(() => SettingPageBindings());
   }
 }

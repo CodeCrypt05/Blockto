@@ -32,8 +32,10 @@ class CustomTextField extends StatelessWidget {
     this.inputFormatters,
     this.enabled,
     this.shouldChangeColor,
+    this.autofocus,
   });
 
+  final bool? autofocus;
   final TextEditingController? controller;
   final void Function(String)? onChanged;
   final String? Function(String?)? validator;
@@ -64,6 +66,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: autofocus!,
       cursorColor: TColors.secondary,
       inputFormatters: inputFormatters,
       enabled: enabled,
