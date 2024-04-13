@@ -1,4 +1,6 @@
+import 'package:blockto_app/data/local_storage/local_storage.dart';
 import 'package:blockto_app/presentation/pages/settings/settings_page_controller.dart';
+import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_controller.dart';
 import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/utils/components/bottom_sheet_popup.dart';
 import 'package:blockto_app/utils/constants/colors.dart';
@@ -11,9 +13,11 @@ class SettingPage extends StatelessWidget {
   SettingPage({super.key});
 
   final settingPageController = Get.find<SettingPageController>();
+  final paperCryptoScreenController = Get.find<PaperCryptoScreenController>();
 
   @override
   Widget build(BuildContext context) {
+    bool isChange = storage.read('isChange') ?? false;
     return SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 20.h),
@@ -61,11 +65,12 @@ class SettingPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 14.h),
-            settingTile(Icons.person_3_outlined, 'Edit Profile', () {}),
+            settingTile(Icons.person_3_outlined, 'Edit Profile', () {}, false),
 
             Divider(color: Colors.grey.withOpacity(0.2), thickness: 1.4),
 
-            settingTile(Icons.lock_open_rounded, 'Change Password', () {}),
+            settingTile(
+                Icons.lock_open_rounded, 'Change Password', () {}, false),
             //----------------------------------------------------------------
             SizedBox(height: 26.h),
             Text(
@@ -78,15 +83,19 @@ class SettingPage extends StatelessWidget {
             ),
             SizedBox(height: 14.h),
 
-            settingTile(Icons.attach_money, 'Paper Crypto',
-                () => Get.toNamed(AppRoutes.paperCryptoScreen)),
+            settingTile(Icons.attach_money, 'Paper Crypto', () {
+              if (isChange) {
+              } else {
+                Get.toNamed(AppRoutes.paperCryptoScreen);
+              }
+            }, isChange),
             Divider(color: Colors.grey.withOpacity(0.2), thickness: 1.4),
 
-            settingTile(Icons.info_outline_rounded, 'About Us', () {}),
+            settingTile(Icons.info_outline_rounded, 'About Us', () {}, false),
 
             Divider(color: Colors.grey.withOpacity(0.2), thickness: 1.4),
 
-            settingTile(Icons.share, 'Share the app', () {}),
+            settingTile(Icons.share, 'Share the app', () {}, false),
             //----------------------------------------------------------------
             SizedBox(height: 26.h),
             Text(
@@ -124,7 +133,7 @@ class SettingPage extends StatelessWidget {
                   Get.back();
                 },
               );
-            }),
+            }, false),
             SizedBox(height: 8.h),
           ],
         ),
@@ -132,7 +141,8 @@ class SettingPage extends StatelessWidget {
     );
   }
 
-  Widget settingTile(IconData icons, String label, VoidCallback onPressed) {
+  Widget settingTile(
+      IconData icons, String label, VoidCallback onPressed, bool isChange) {
     return InkWell(
       onTap: onPressed,
       customBorder:
@@ -147,13 +157,13 @@ class SettingPage extends StatelessWidget {
                 Icon(
                   icons,
                   size: 20.h,
-                  color: Colors.white,
+                  color: isChange ? Colors.grey : Colors.white,
                 ),
                 SizedBox(width: 14.h),
                 Text(
                   label,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: isChange ? Colors.grey : Colors.white,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,
                   ),
@@ -163,7 +173,7 @@ class SettingPage extends StatelessWidget {
             Icon(
               Icons.arrow_forward_ios_rounded,
               size: 20.h,
-              color: Colors.white,
+              color: isChange ? Colors.grey : Colors.white,
             ),
           ],
         ),

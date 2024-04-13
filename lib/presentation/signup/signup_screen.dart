@@ -75,6 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                           ),
                           SizedBox(height: 6.h),
                           CustomTextField(
+                            autofocus: false,
                             maxLines: 1,
                             controller: signUpController.nameController,
                             textAlignVertical: TextAlignVertical.bottom,
@@ -114,6 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                           ),
                           SizedBox(height: 6.h),
                           CustomTextField(
+                            autofocus: false,
                             maxLines: 1,
                             controller: signUpController.emailController,
                             textAlignVertical: TextAlignVertical.bottom,
@@ -153,6 +155,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                           ),
                           SizedBox(height: 6.h),
                           CustomTextField(
+                            autofocus: false,
                             // isPassword: isPasswordVisible,
                             maxLines: 1,
                             controller: signUpController.passwordController,

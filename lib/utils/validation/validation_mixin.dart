@@ -45,7 +45,7 @@ mixin ValidationsMixin {
 
   String? validatePrice(String? value) {
     double coinPrice = double.parse(value.toString());
-    if (coinPrice < 0.0 || coinPrice >= 100) {
+    if (coinPrice < 0.0 && coinPrice >= 100.0) {
       return 'the limit is assigned upto 100\$';
     }
   }

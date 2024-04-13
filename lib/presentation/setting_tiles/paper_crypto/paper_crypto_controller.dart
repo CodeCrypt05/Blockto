@@ -1,4 +1,6 @@
 import 'package:blockto_app/data/firebase_services/firebase_services.dart';
+import 'package:blockto_app/data/local_storage/local_storage.dart';
+import 'package:blockto_app/routes/app_routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +10,16 @@ class PaperCryptoScreenController extends GetxController {
   final FirebaseAuth auth = FirebaseService().auth;
   GlobalKey<FormState> paperCryptoFormKey = GlobalKey<FormState>();
 
+  bool isChange = false;
+
   final coinPriceController = TextEditingController();
 
   // here handle the situation when user can perform this operation for 1 time after
   // that it will close
+  @override
+  void onInit() async {
+    super.onInit();
+  }
 
   Future<void> addCointoPortfolio(
     String imgUrl,
@@ -27,7 +35,7 @@ class PaperCryptoScreenController extends GetxController {
           .collection('users')
           .doc(auth.currentUser!.uid)
           .collection('coins')
-          .doc(auth.currentUser!.uid)
+          .doc(coinSymbol)
           .set({
         'img_link': 'https://cryptologos.cc/logos/tether-usdt-logo.svg?v=031',
         'coin_name': coinName,
@@ -37,6 +45,7 @@ class PaperCryptoScreenController extends GetxController {
         'current_coin_value': currentCoinValue,
       });
       // ---
+      storage.write('isChange', true);
       Get.snackbar(
         "Congratulation",
         "Task task added successfully",
@@ -45,6 +54,7 @@ class PaperCryptoScreenController extends GetxController {
         backgroundColor: Colors.white,
       );
       coinPriceController.clear();
+      Get.back();
     } on FirebaseAuthException catch (error) {
       Get.snackbar(error.message ?? "task added failed", "Please try again",
           snackPosition: SnackPosition.BOTTOM,

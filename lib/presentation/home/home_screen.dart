@@ -1,4 +1,4 @@
-import 'package:blockto_app/presentation/home_page/home_screen_controller.dart';
+import 'package:blockto_app/presentation/home/home_screen_controller.dart';
 import 'package:blockto_app/presentation/pages/home/home_page.dart';
 import 'package:blockto_app/presentation/pages/market/market_page.dart';
 import 'package:blockto_app/presentation/pages/portfolio/portfolio_page.dart';

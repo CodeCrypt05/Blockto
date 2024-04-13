@@ -1,4 +1,4 @@
-import 'package:blockto_app/presentation/paper_crypto/paper_crypto_controller.dart';
+import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_controller.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
 import 'package:blockto_app/widget/common/custom_textfield.dart';
@@ -88,7 +88,7 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
                     if (paperCryptoController.paperCryptoFormKey.currentState!
                         .validate()) {
                       paperCryptoController.addCointoPortfolio(
-                        "https://cryptologos.cc/logos/tether-usdt-logo.svg?v=031",
+                        "https://assets.coingecko.com/coins/images/325/large/Tether-logo.png",
                         'Tether USDt',
                         'USDT',
                         0.0,
