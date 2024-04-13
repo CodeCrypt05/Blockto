@@ -1,4 +1,4 @@
-import 'package:blockto_app/presentation/home_page/home_screen_controller.dart';
+import 'package:blockto_app/presentation/home/home_screen_controller.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

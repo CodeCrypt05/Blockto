@@ -1,4 +1,4 @@
-import 'package:blockto_app/presentation/home_page/home_screen.dart';
+import 'package:blockto_app/presentation/home/home_screen.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen.dart';
 import 'package:blockto_app/presentation/splash/splash_screen_controller.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';

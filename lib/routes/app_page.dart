@@ -1,5 +1,5 @@
-import 'package:blockto_app/presentation/home_page/home_screen.dart';
-import 'package:blockto_app/presentation/home_page/home_screen_binding.dart';
+import 'package:blockto_app/presentation/home/home_screen.dart';
+import 'package:blockto_app/presentation/home/home_screen_binding.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen_binding.dart';
 import 'package:blockto_app/presentation/pages/home/home_page.dart';
@@ -10,8 +10,8 @@ import 'package:blockto_app/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:blockto_app/presentation/pages/portfolio/portfolio_page_binding.dart';
 import 'package:blockto_app/presentation/pages/settings/settings_page.dart';
 import 'package:blockto_app/presentation/pages/settings/settings_page_bindings.dart';
-import 'package:blockto_app/presentation/paper_crypto/paper_crypto_binding.dart';
-import 'package:blockto_app/presentation/paper_crypto/paper_crypto_screen.dart';
+import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_binding.dart';
+import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_screen.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_binding.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_page.dart';
 import 'package:blockto_app/presentation/signin/signin_screen.dart';

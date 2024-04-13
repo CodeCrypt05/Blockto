@@ -1,18 +1,30 @@
+import 'package:blockto_app/data/firebase_services/firebase_services.dart';
+import 'package:blockto_app/presentation/pages/portfolio/portfolio_page_controller.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:blockto_app/widget/buyed_coin_list.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_circular_chart/awesome_circular_chart.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class PortfolioPage extends StatelessWidget {
   PortfolioPage({super.key});
 
   final GlobalKey<AnimatedCircularChartState> _chartKey =
       GlobalKey<AnimatedCircularChartState>();
+  final portfolioPageController = Get.find<PortfolioPageController>();
+  final FirebaseAuth auth = FirebaseService().auth;
 
   @override
   Widget build(BuildContext context) {
+    // var querySnapshot =
+    //     portfolioPageController.GetBuyedCoinList().querySnapshot;
+    Query<Map<String, dynamic>> querySnapshot = FirebaseFirestore.instance
+        .collection('users')
+        .doc(auth.currentUser!.uid)
+        .collection('coins');
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -70,14 +82,47 @@ class PortfolioPage extends StatelessWidget {
               //   thickness: 1.4,
               // ),
 
+              // Expanded(
+              //   child: Center(
+              //     child: Image.asset(
+              //       BImages.emptyBox,
+              //       fit: BoxFit.cover,
+              //       height: 80.h,
+              //       width: 80.w,
+              //     ),
+              //   ),
+              // ),
+
               Expanded(
-                child: Center(
-                  child: Image.asset(
-                    BImages.emptyBox,
-                    fit: BoxFit.cover,
-                    height: 80.h,
-                    width: 80.w,
-                  ),
+                child: StreamBuilder(
+                  stream: querySnapshot.snapshots(),
+                  builder: (ctx, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (snapshot.data!.docs.isNotEmpty) {
+                      print('data fetch successfully');
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          Map data = snapshot.data?.docs[index].data() as Map;
+                          print('lenght: ${snapshot.data!.docs.length}');
+                          return BuyedCoinList(
+                            coinBought: data['coin_bought'],
+                            coinName: data['coin_name'],
+                            symbol: data['coin_symbol'],
+                            currentCoinValue: data['current_coin_value'],
+                            imageUrl:
+                                'https://assets.coingecko.com/coins/images/325/large/Tether-logo.png',
+                            initialInvestment: data['initial_investment'],
+                          );
+                        },
+                      );
+                    }
+                    return const SizedBox.shrink();
+                  },
                 ),
               ),
             ],
