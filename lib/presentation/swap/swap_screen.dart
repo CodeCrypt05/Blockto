@@ -1,41 +1,43 @@
-import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_controller.dart';
-import 'package:blockto_app/utils/constants/image_constants.dart';
+import 'package:blockto_app/presentation/swap/swap_screen_controller.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
 import 'package:blockto_app/widget/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:svg_flutter/svg.dart';
 
-class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
-  PaperCryptoScreen({super.key});
+class SwapCoinScreen extends StatelessWidget with ValidationsMixin {
+  SwapCoinScreen({
+    super.key,
+  });
 
-  final paperCryptoController = Get.find<PaperCryptoScreenController>();
+  final swapCoinController = Get.find<SwapCoinScreenController>();
 
   @override
   Widget build(BuildContext context) {
+    final dynamic item = Get.arguments;
+
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(),
       body: Container(
         margin: EdgeInsetsDirectional.symmetric(horizontal: 20.h),
         child: Form(
-          key: paperCryptoController.paperCryptoFormKey,
+          key: swapCoinController.swapCoinFormKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 28.h),
               Row(
                 children: [
-                  SvgPicture.asset(
-                    BImages.usdtCoin,
+                  Image.network(
+                    item.image,
                     fit: BoxFit.cover,
                     height: 30.h,
-                    width: 30.h,
+                    width: 30.w,
                   ),
                   SizedBox(width: 14.h),
                   Text(
-                    "Buy Tether USDT",
+                    item.name.toString(),
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w800,
@@ -57,10 +59,15 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
               CustomTextField(
                 autofocus: true,
                 maxLines: 1,
-                controller: paperCryptoController.coinPriceController,
+                controller: swapCoinController.swapCoinController,
                 textAlignVertical: TextAlignVertical.bottom,
                 // hintText: "Enter your name",
                 textInputType: TextInputType.number,
+                onChanged: (value) {
+                  // Update inputValue whenever the text field changes
+                  swapCoinController.inputValue.value = int.parse(value);
+                  // Call calculateResult after debounce duration
+                },
                 // prefixIcon: ,
                 suffixIcon: Container(
                   width: double.minPositive,
@@ -82,30 +89,31 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
                   color: const Color(0xffF5C249).withOpacity(0.8),
                 ),
                 validator: validatePrice,
-                onFieldSubmitted: (p0) {
-                  if (paperCryptoController.paperCryptoFormKey.currentState!
-                      .validate()) {
-                    paperCryptoController.addCointoPortfolio(
-                      "https://assets.coingecko.com/coins/images/325/large/Tether-logo.png",
-                      'Tether USDt',
-                      'usdt',
-                      0.0,
-                      double.parse(
-                          paperCryptoController.coinPriceController.text),
-                      1.0,
-                    );
-                  }
-                },
+                // onFieldSubmitted: (p0) {
+                //   if (swapCoinController.swapCoinFormKey.currentState!
+                //       .validate()) {
+                //     swapCoinController.addCointoPortfolio(
+                //       "https://assets.coingecko.com/coins/images/325/large/Tether-logo.png",
+                //       'Tether USDt',
+                //       'usdt',
+                //       0.0,
+                //       double.parse(swapCoinController.coinPriceController.text),
+                //       1.0,
+                //     );
+                //   }
+                // },
               ),
               SizedBox(height: 16.h),
-              // Text(
-              //   "Estimated price ~ ${10}",
-              //   style: TextStyle(
-              //     fontSize: 12.sp,
-              //     fontWeight: FontWeight.w400,
-              //     color: const Color(0xffF5C249).withOpacity(0.6),
-              //   ),
-              // ),
+              Obx(
+                () => Text(
+                  "Estimated price ~ ${10}",
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xffF5C249).withOpacity(0.6),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

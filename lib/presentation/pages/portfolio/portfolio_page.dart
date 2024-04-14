@@ -1,6 +1,5 @@
 import 'package:blockto_app/data/firebase_services/firebase_services.dart';
 import 'package:blockto_app/presentation/pages/portfolio/portfolio_page_controller.dart';
-import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/widget/buyed_coin_list.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,105 +26,93 @@ class PortfolioPage extends StatelessWidget {
         .collection('coins');
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          margin: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                alignment: Alignment.topCenter,
-                child: AnimatedCircularChart(
-                  key: _chartKey,
-                  size: const Size(300.0, 300.0),
-                  initialChartData: <CircularStackEntry>[
-                    CircularStackEntry(
-                      <CircularSegmentEntry>[
-                        const CircularSegmentEntry(
-                          33.33,
-                          Color(0xffF5C249),
-                          rankKey: 'completed',
-                        ),
-                        CircularSegmentEntry(
-                          66.67,
-                          Colors.grey[600],
-                          rankKey: 'remaining',
-                        ),
-                      ],
-                      rankKey: 'progress',
+        body: Obx(
+          () => Container(
+            margin: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  alignment: Alignment.topCenter,
+                  child: AnimatedCircularChart(
+                    key: _chartKey,
+                    size: const Size(300.0, 300.0),
+                    initialChartData: <CircularStackEntry>[
+                      CircularStackEntry(
+                        <CircularSegmentEntry>[
+                          const CircularSegmentEntry(
+                            100.0,
+                            Color(0xffF5C249),
+                            rankKey: 'completed',
+                          ),
+                          CircularSegmentEntry(
+                            0.0,
+                            Colors.grey[600],
+                            rankKey: 'remaining',
+                          ),
+                        ],
+                        rankKey: 'progress',
+                      ),
+                    ],
+                    chartType: CircularChartType.Radial,
+                    edgeStyle: SegmentEdgeStyle.round,
+                    percentageValues: true,
+                    holeLabel:
+                        '\$${portfolioPageController.totalInitialInvestment.value}',
+                    labelStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24.0,
                     ),
-                  ],
-                  chartType: CircularChartType.Radial,
-                  edgeStyle: SegmentEdgeStyle.round,
-                  percentageValues: true,
-                  holeLabel: '\$10.11',
-                  labelStyle: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24.0,
                   ),
                 ),
-              ),
-              SizedBox(height: 6.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  customButton(
-                      'Withdraw', Colors.grey.withOpacity(0.5), Colors.grey),
-                  SizedBox(width: 24.w),
-                  customButton(
-                      'Deposit', const Color(0xffF5C249), Colors.black),
-                ],
-              ),
-              SizedBox(height: 20.h),
-              // Divider(
-              //   color: Colors.grey.withOpacity(0.3),
-              //   thickness: 1.4,
-              // ),
-
-              // Expanded(
-              //   child: Center(
-              //     child: Image.asset(
-              //       BImages.emptyBox,
-              //       fit: BoxFit.cover,
-              //       height: 80.h,
-              //       width: 80.w,
-              //     ),
-              //   ),
-              // ),
-
-              Expanded(
-                child: StreamBuilder(
-                  stream: querySnapshot.snapshots(),
-                  builder: (ctx, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else if (snapshot.data!.docs.isNotEmpty) {
-                      print('data fetch successfully');
-                      return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: snapshot.data!.docs.length,
-                        itemBuilder: (context, index) {
-                          Map data = snapshot.data?.docs[index].data() as Map;
-                          print('lenght: ${snapshot.data!.docs.length}');
-                          return BuyedCoinList(
-                            coinBought: data['coin_bought'],
-                            coinName: data['coin_name'],
-                            symbol: data['coin_symbol'],
-                            currentCoinValue: data['current_coin_value'],
-                            imageUrl:
-                                'https://assets.coingecko.com/coins/images/325/large/Tether-logo.png',
-                            initialInvestment: data['initial_investment'],
-                          );
-                        },
-                      );
-                    }
-                    return const SizedBox.shrink();
-                  },
+                SizedBox(height: 6.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    customButton(
+                        'Withdraw', Colors.grey.withOpacity(0.5), Colors.grey),
+                    SizedBox(width: 24.w),
+                    customButton(
+                        'Deposit', const Color(0xffF5C249), Colors.black),
+                  ],
                 ),
-              ),
-            ],
+                SizedBox(height: 20.h),
+                Expanded(
+                  child: StreamBuilder(
+                    stream: querySnapshot.snapshots(),
+                    builder: (ctx, AsyncSnapshot<QuerySnapshot> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else if (snapshot.data!.docs.isNotEmpty) {
+                        print('data fetch successfully');
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: snapshot.data!.docs.length,
+                          itemBuilder: (context, index) {
+                            Map data = snapshot.data?.docs[index].data() as Map;
+                            print('lenght: ${snapshot.data!.docs.length}');
+
+                            return BuyedCoinList(
+                              coinBought: data['coin_bought'],
+                              coinName: data['coin_name'],
+                              symbol: data['coin_symbol'],
+                              currentCoinValue: data['current_coin_value'],
+                              imageUrl:
+                                  'https://assets.coingecko.com/coins/images/325/large/Tether-logo.png',
+                              initialInvestment: data['initial_investment'],
+                            );
+                          },
+                        );
+                      }
+                      return const SizedBox.shrink();
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

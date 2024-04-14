@@ -1,6 +1,5 @@
 import 'package:blockto_app/data/firebase_services/firebase_services.dart';
 import 'package:blockto_app/data/local_storage/local_storage.dart';
-import 'package:blockto_app/routes/app_routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

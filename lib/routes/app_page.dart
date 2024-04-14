@@ -20,6 +20,8 @@ import 'package:blockto_app/presentation/signup/signup_screen.dart';
 import 'package:blockto_app/presentation/signup/signup_screen_binding.dart';
 import 'package:blockto_app/presentation/splash/splash_screen.dart';
 import 'package:blockto_app/presentation/splash/splash_screen_binding.dart';
+import 'package:blockto_app/presentation/swap/swap_screen.dart';
+import 'package:blockto_app/presentation/swap/swap_screen_binding.dart';
 import 'package:blockto_app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
@@ -72,7 +74,11 @@ class AppPages {
       page: () => PaperCryptoScreen(),
       binding: PaperCryptoScreenBinding(),
     ),
-
+    GetPage(
+      name: AppRoutes.swapCoinScreen,
+      page: () => SwapCoinScreen(),
+      binding: SwapCoinScreenBinding(),
+    ),
     //----- Auth Screen
     GetPage(
       name: AppRoutes.signupScreen,
