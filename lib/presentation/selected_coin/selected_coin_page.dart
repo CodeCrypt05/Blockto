@@ -47,7 +47,9 @@ class _SelectedCoinPageState extends State<SelectedCoinPage> {
           ),
         ],
       ),
-      bottomNavigationBar: SelectedCoinBottomAppbarWidget(),
+      bottomNavigationBar: SelectedCoinBottomAppbarWidget(
+        item: data,
+      ),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 20.w),
