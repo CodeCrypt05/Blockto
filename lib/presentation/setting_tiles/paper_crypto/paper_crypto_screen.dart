@@ -86,7 +86,7 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
                   if (paperCryptoController.paperCryptoFormKey.currentState!
                       .validate()) {
                     paperCryptoController.addCointoPortfolio(
-                      "https://assets.coingecko.com/coins/images/325/large/Tether-logo.png",
+                      "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
                       'Tether USDt',
                       'usdt',
                       0.0,
