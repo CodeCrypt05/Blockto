@@ -100,8 +100,7 @@ class PortfolioPage extends StatelessWidget {
                               coinName: data['coin_name'],
                               symbol: data['coin_symbol'],
                               currentCoinValue: data['current_coin_value'],
-                              imageUrl:
-                                  'https://assets.coingecko.com/coins/images/325/large/Tether-logo.png',
+                              imageUrl: data['img_link'],
                               initialInvestment: data['initial_investment'],
                             );
                           },

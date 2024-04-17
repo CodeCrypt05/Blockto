@@ -1,5 +1,6 @@
 import 'package:blockto_app/presentation/swap/swap_screen_controller.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
+import 'package:blockto_app/widget/auth_button/auth_buttons.dart';
 import 'package:blockto_app/widget/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +16,11 @@ class SwapCoinScreen extends StatelessWidget with ValidationsMixin {
   @override
   Widget build(BuildContext context) {
     final dynamic item = Get.arguments;
+    swapCoinController.coinPrice.value = item.currentPrice;
+    swapCoinController.imageUrl.value = item.image;
+    swapCoinController.coinName.value = item.name;
+    swapCoinController.coinSymbol.value = item.symbol;
+    swapCoinController.currentCoinValue.value = item.currentPrice;
 
     return SafeArea(
         child: Scaffold(
@@ -59,15 +65,11 @@ class SwapCoinScreen extends StatelessWidget with ValidationsMixin {
               CustomTextField(
                 autofocus: true,
                 maxLines: 1,
-                controller: swapCoinController.swapCoinController,
+                controller: swapCoinController.swapCoinControllerText,
                 textAlignVertical: TextAlignVertical.bottom,
                 // hintText: "Enter your name",
                 textInputType: TextInputType.number,
-                onChanged: (value) {
-                  // Update inputValue whenever the text field changes
-                  swapCoinController.inputValue.value = int.parse(value);
-                  // Call calculateResult after debounce duration
-                },
+
                 // prefixIcon: ,
                 suffixIcon: Container(
                   width: double.minPositive,
@@ -104,15 +106,20 @@ class SwapCoinScreen extends StatelessWidget with ValidationsMixin {
                 // },
               ),
               SizedBox(height: 16.h),
-              Obx(
-                () => Text(
-                  "Estimated price ~ ${10}",
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xffF5C249).withOpacity(0.6),
-                  ),
+              Text(
+                "Estimated price ~ ${10}",
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                  color: const Color(0xffF5C249).withOpacity(0.6),
                 ),
+              ),
+              AuthButton(
+                label: 'Swap',
+                icons: const Icon(Icons.arrow_forward),
+                onPressed: () {
+                  swapCoinController.swapCoinClicked();
+                },
               ),
             ],
           ),

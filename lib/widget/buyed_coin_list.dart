@@ -92,7 +92,7 @@ class BuyedCoinList extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '\$  $coinBought',
+                  '\$  ${coinBought.toStringAsFixed(2)}',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.sp,
