@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_circular_chart/awesome_circular_chart.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -26,75 +27,76 @@ class PortfolioPage extends StatelessWidget {
         .collection('coins');
     return SafeArea(
       child: Scaffold(
-        body: Obx(
-          () => Container(
-            margin: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  alignment: Alignment.topCenter,
-                  child: AnimatedCircularChart(
-                    key: _chartKey,
-                    size: const Size(300.0, 300.0),
-                    initialChartData: <CircularStackEntry>[
-                      CircularStackEntry(
-                        <CircularSegmentEntry>[
-                          const CircularSegmentEntry(
-                            100.0,
-                            Color(0xffF5C249),
-                            rankKey: 'completed',
+        body: SingleChildScrollView(
+          child: StreamBuilder(
+            stream: querySnapshot.snapshots(),
+            builder: (ctx, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (snapshot.data!.docs.isNotEmpty) {
+                print('data fetch successfully');
+                return Obx(
+                  () => Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          alignment: Alignment.topCenter,
+                          child: AnimatedCircularChart(
+                            key: _chartKey,
+                            size: const Size(300.0, 300.0),
+                            initialChartData: <CircularStackEntry>[
+                              CircularStackEntry(
+                                <CircularSegmentEntry>[
+                                  CircularSegmentEntry(
+                                    portfolioPageController
+                                        .portfolioProfit.value,
+                                    Color(0xffF5C249),
+                                    rankKey: 'completed',
+                                  ),
+                                  CircularSegmentEntry(
+                                    100.0,
+                                    Colors.grey[600],
+                                    rankKey: 'remaining',
+                                  ),
+                                ],
+                                rankKey: 'progress',
+                              ),
+                            ],
+                            chartType: CircularChartType.Radial,
+                            edgeStyle: SegmentEdgeStyle.round,
+                            percentageValues: true,
+                            holeLabel:
+                                '\$${portfolioPageController.portfolioProfit.toStringAsFixed(2)}',
+                            labelStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24.0,
+                            ),
                           ),
-                          CircularSegmentEntry(
-                            0.0,
-                            Colors.grey[600],
-                            rankKey: 'remaining',
-                          ),
-                        ],
-                        rankKey: 'progress',
-                      ),
-                    ],
-                    chartType: CircularChartType.Radial,
-                    edgeStyle: SegmentEdgeStyle.round,
-                    percentageValues: true,
-                    holeLabel:
-                        '\$${portfolioPageController.totalInitialInvestment.value}',
-                    labelStyle: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 6.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    customButton(
-                        'Withdraw', Colors.grey.withOpacity(0.5), Colors.grey),
-                    SizedBox(width: 24.w),
-                    customButton(
-                        'Deposit', const Color(0xffF5C249), Colors.black),
-                  ],
-                ),
-                SizedBox(height: 20.h),
-                Expanded(
-                  child: StreamBuilder(
-                    stream: querySnapshot.snapshots(),
-                    builder: (ctx, AsyncSnapshot<QuerySnapshot> snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else if (snapshot.data!.docs.isNotEmpty) {
-                        print('data fetch successfully');
-                        return ListView.builder(
+                        ),
+                        SizedBox(height: 6.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            customButton('Withdraw',
+                                Colors.grey.withOpacity(0.5), Colors.grey),
+                            SizedBox(width: 24.w),
+                            customButton('Deposit', const Color(0xffF5C249),
+                                Colors.black),
+                          ],
+                        ),
+                        SizedBox(height: 20.h),
+                        ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
                             Map data = snapshot.data?.docs[index].data() as Map;
                             print('lenght: ${snapshot.data!.docs.length}');
-
                             return BuyedCoinList(
                               coinBought: data['coin_bought'],
                               coinName: data['coin_name'],
@@ -104,14 +106,14 @@ class PortfolioPage extends StatelessWidget {
                               initialInvestment: data['initial_investment'],
                             );
                           },
-                        );
-                      }
-                      return const SizedBox.shrink();
-                    },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
+                );
+              }
+              return const SizedBox.shrink();
+            },
           ),
         ),
       ),
