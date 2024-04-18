@@ -19,6 +19,9 @@ class PortfolioPageController extends GetxController {
   var isLoading = false.obs;
   Map<String, dynamic> investmentMap = {};
   var newPrices = <String?, double>{};
+  var portfolioProfit = 0.0.obs;
+  double coinCount = 0.0;
+  double coinPrice = 0.0;
 
   @override
   void onInit() {
@@ -41,11 +44,8 @@ class PortfolioPageController extends GetxController {
       double totalInvestment = 0;
 
       snapshot.docs.forEach((doc) {
-        // totalInvestment += (doc.data()['initial_investment'] ?? 0);
-
         String coinSymbol = doc.data()['coin_symbol'];
         double coinBought = doc.data()['coin_bought'];
-        print(coinSymbol);
         investmentMap[coinSymbol] = coinBought;
       });
       totalInitialInvestment.value = totalInvestment;
@@ -77,13 +77,23 @@ class PortfolioPageController extends GetxController {
         if (initialInvestmentMap.value.containsKey(symbol)) {
           double totalPrice = initialInvestmentMap.value[symbol];
           double newPrice = price! * totalPrice;
+          coinCount += totalPrice;
+          coinPrice += newPrice;
           newPrices[symbol] = newPrice;
-          print("updated map: ${newPrices}");
+          print("updated map: ${newPrice}");
           coin.write('coins', newPrices);
         }
       }
+      portfolioProfit.value = coinCount * coinPrice;
     } finally {
       isLoading(false);
     }
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    Get.delete<PortfolioPageController>();
+    super.dispose();
   }
 }
