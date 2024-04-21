@@ -6,6 +6,8 @@ class AppRoutes {
   static const String splashScreen = "/splashScreen";
   static const String paperCryptoScreen = "/paperCryptoScreen";
   static const String swapCoinScreen = "/swapCoinScreen";
+  static const String newsScreen = "/newsScreen";
+  static const String emptyNotificationScreen = "/emptyNotificationScreen";
 
   // ----------------------------------------------------------------
   static const String homePage = "/homePage";

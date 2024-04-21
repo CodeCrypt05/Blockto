@@ -6,7 +6,7 @@ class NewsApi {
   Future<List<dynamic>> getNewsData() async {
     final response = await http.get(
       Uri.parse(
-          "https://newsdata.io/api/1/news?apikey=pub_415924aaf9892fcc9d52c341d7b2c1700f10c&q=crypto%20coin&language=en "),
+          "https://newsdata.io/api/1/news?apikey=pub_415924aaf9892fcc9d52c341d7b2c1700f10c&q=crypto%20coin&language=en"),
     );
     if (response.statusCode == 200) {
       return jsonDecode(response.body)['results'] as List<dynamic>;

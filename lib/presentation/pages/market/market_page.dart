@@ -15,23 +15,25 @@ class MarketPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Obx(
-        () => Column(
-          children: [
-            SizedBox(
-              // color: Colors.blueAccent,
-              width: double.infinity,
-              height: 36.h,
-              child: CustomTabsBar(marketController: marketPageController),
-            ),
-            SizedBox(height: 18.h),
-            marketPageController.position.value == 0
-                ? allCoins(homePageController.coinMarketList)
-                : marketPageController.position.value == 1
-                    ? watchList()
-                    : SizedBox.shrink(),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: Obx(
+          () => Column(
+            children: [
+              SizedBox(
+                // color: Colors.blueAccent,
+                width: double.infinity,
+                height: 36.h,
+                child: CustomTabsBar(marketController: marketPageController),
+              ),
+              SizedBox(height: 18.h),
+              marketPageController.position.value == 0
+                  ? allCoins(homePageController.coinMarketList)
+                  : marketPageController.position.value == 1
+                      ? watchList()
+                      : SizedBox.shrink(),
+            ],
+          ),
         ),
       ),
     );
