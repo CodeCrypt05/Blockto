@@ -1,5 +1,9 @@
+import 'package:blockto_app/presentation/empty_notification/empty_notification_binding.dart';
+import 'package:blockto_app/presentation/empty_notification/empty_notification_screen.dart';
 import 'package:blockto_app/presentation/home/home_screen.dart';
 import 'package:blockto_app/presentation/home/home_screen_binding.dart';
+import 'package:blockto_app/presentation/news/news_screen.dart';
+import 'package:blockto_app/presentation/news/news_screen_binding.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen_binding.dart';
 import 'package:blockto_app/presentation/pages/home/home_page.dart';
@@ -48,6 +52,7 @@ class AppPages {
       page: () => SettingPage(),
       binding: SettingPageBindings(),
     ),
+
     //------Screens --------------------------------------------------------
     GetPage(
       name: AppRoutes.selectedCoinScreen,
@@ -79,6 +84,17 @@ class AppPages {
       page: () => SwapCoinScreen(),
       binding: SwapCoinScreenBinding(),
     ),
+    GetPage(
+      name: AppRoutes.newsScreen,
+      page: () => NewsScreen(),
+      binding: NewsScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.emptyNotificationScreen,
+      page: () => EmptyNotificationScreen(),
+      binding: EmptyNotificationScreenBinding(),
+    ),
+
     //----- Auth Screen
     GetPage(
       name: AppRoutes.signupScreen,

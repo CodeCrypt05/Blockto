@@ -53,8 +53,9 @@ class PortfolioPage extends StatelessWidget {
                                 <CircularSegmentEntry>[
                                   CircularSegmentEntry(
                                     portfolioPageController
-                                        .portfolioProfit.value,
-                                    Color(0xffF5C249),
+                                            .portfolioProfit.value /
+                                        10,
+                                    const Color(0xffF5C249),
                                     rankKey: 'completed',
                                   ),
                                   CircularSegmentEntry(
@@ -79,24 +80,31 @@ class PortfolioPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 6.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            customButton('Withdraw',
-                                Colors.grey.withOpacity(0.5), Colors.grey),
-                            SizedBox(width: 24.w),
-                            customButton('Deposit', const Color(0xffF5C249),
-                                Colors.black),
-                          ],
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //   children: [
+                        //     customButton('Withdraw',
+                        //         Colors.grey.withOpacity(0.5), Colors.grey),
+                        //     SizedBox(width: 24.w),
+                        //     customButton('Deposit', const Color(0xffF5C249),
+                        //         Colors.black),
+                        //   ],
+                        // ),
+                        Text(
+                          "Coins you hold",
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xffFFFF).withOpacity(0.6),
+                          ),
                         ),
-                        SizedBox(height: 20.h),
+                        SizedBox(height: 16.h),
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
                             Map data = snapshot.data?.docs[index].data() as Map;
-                            print('lenght: ${snapshot.data!.docs.length}');
                             return BuyedCoinList(
                               coinBought: data['coin_bought'],
                               coinName: data['coin_name'],

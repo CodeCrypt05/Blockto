@@ -22,6 +22,7 @@ class PortfolioPageController extends GetxController {
   var portfolioProfit = 0.0.obs;
   double coinCount = 0.0;
   double coinPrice = 0.0;
+  List<double> totalCoinPrice = [];
 
   @override
   void onInit() {
@@ -81,10 +82,12 @@ class PortfolioPageController extends GetxController {
           coinPrice += newPrice;
           newPrices[symbol] = newPrice;
           print("updated map: ${newPrice}");
+          totalCoinPrice.add(newPrice);
           coin.write('coins', newPrices);
         }
       }
-      portfolioProfit.value = coinCount * coinPrice;
+      double sum = totalCoinPrice.reduce((value, element) => value + element);
+      portfolioProfit.value = sum;
     } finally {
       isLoading(false);
     }
