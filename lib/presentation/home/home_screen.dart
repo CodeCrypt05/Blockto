@@ -18,40 +18,43 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          GestureDetector(
-            onTap: () => Get.toNamed(AppRoutes.emptyNotificationScreen),
-            child: Container(
-              // color: Colors.amber,
-              padding: EdgeInsets.only(right: 22.w),
-              child: Image.asset(
-                BImages.notificationIc,
-                fit: BoxFit.cover,
-                height: 24.h,
-                width: 24.w,
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          actions: [
+            GestureDetector(
+              onTap: () => Get.toNamed(AppRoutes.emptyNotificationScreen),
+              child: Container(
+                // color: Colors.amber,
+                padding: EdgeInsets.only(right: 22.w),
+                child: Image.asset(
+                  BImages.notificationIc,
+                  fit: BoxFit.cover,
+                  height: 24.h,
+                  width: 24.w,
+                ),
               ),
-            ),
-          )
-        ],
-      ),
-      bottomNavigationBar: BottomAppbarWidget(
-        homeController: homeScreenController,
-      ),
-      body: Obx(() {
-        if (homeScreenController.tabIndex.value == 0) {
-          return HomePage();
-        } else if (homeScreenController.tabIndex.value == 1) {
-          return MarketPage();
-        } else if (homeScreenController.tabIndex.value == 2) {
-          return PortfolioPage();
-        } else if (homeScreenController.tabIndex.value == 3) {
-          return SettingPage();
-        }
+            )
+          ],
+        ),
+        bottomNavigationBar: BottomAppbarWidget(
+          homeController: homeScreenController,
+        ),
+        body: Obx(() {
+          if (homeScreenController.tabIndex.value == 0) {
+            return HomePage();
+          } else if (homeScreenController.tabIndex.value == 1) {
+            return MarketPage();
+          } else if (homeScreenController.tabIndex.value == 2) {
+            return PortfolioPage();
+          } else if (homeScreenController.tabIndex.value == 3) {
+            return SettingPage();
+          }
 
-        return const SizedBox();
-      }),
+          return const SizedBox();
+        }),
+      ),
     );
   }
 }

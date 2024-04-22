@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +22,9 @@ class NewsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dynamic newsData = Get.arguments;
+    final args = Get.arguments;
+    final item = args['item'];
+    final index = args['index'];
 
     // String content = blog.content;
     // String firstWord = content.split(' ').first.characters.first;
@@ -36,7 +39,7 @@ class NewsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  newsData.title,
+                  item.title,
                   style: TextStyle(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.w600,
@@ -53,23 +56,26 @@ class NewsScreen extends StatelessWidget {
                 // ),
                 // SizedBox(height: 6.h),
                 Text(
-                  "${newsData.pubDate}",
+                  "${item.pubDate}",
                   style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                       color: Colors.white.withOpacity(0.6)),
                 ),
                 SizedBox(height: 16.h),
-                Container(
-                  height: 200.h,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.amber,
-                    image: DecorationImage(
-                      image: NetworkImage(newsData.imageUrl),
-                      fit: BoxFit.cover,
+                Hero(
+                  tag: 'tag$index',
+                  child: Container(
+                    height: 200.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      image: DecorationImage(
+                        image: NetworkImage(item.imageUrl),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
-                    borderRadius: BorderRadius.circular(12.r),
                   ),
                 ),
                 SizedBox(height: 26.h),
@@ -77,7 +83,7 @@ class NewsScreen extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '${newsData.description}',
+                        text: '${item.description}',
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,

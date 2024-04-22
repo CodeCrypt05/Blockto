@@ -205,6 +205,7 @@ class HomePage extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return NewsCard(
                             item: homePageController.newsDataList[index],
+                            index: index,
                           );
                         })
               ],

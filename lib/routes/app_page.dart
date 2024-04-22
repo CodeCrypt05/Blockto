@@ -92,6 +92,8 @@ class AppPages {
     GetPage(
       name: AppRoutes.emptyNotificationScreen,
       page: () => EmptyNotificationScreen(),
+      transition: Transition.rightToLeft,
+      transitionDuration: Duration(milliseconds: 300),
       binding: EmptyNotificationScreenBinding(),
     ),
 
