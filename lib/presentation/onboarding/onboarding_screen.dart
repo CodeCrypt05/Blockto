@@ -1,4 +1,5 @@
 import 'package:blockto_app/presentation/onboarding/onboarding_screen_controller.dart';
+import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/widget/wide_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -153,7 +154,7 @@ class OnBoardingScreen extends StatelessWidget {
                   //skip text
                   GestureDetector(
                     onTap: () {
-                      // Get.toNamed(AppRoutes.homeScreen);
+                      Get.offNamed(AppRoutes.signinScreen);
                     },
                     child: Text(
                       "Skip",
@@ -227,7 +228,7 @@ class OnBoardingScreen extends StatelessWidget {
                       index == 2 ? MediaQuery.of(context).size.width : 220.h)),
         ),
         Padding(
-            padding: EdgeInsets.only(top: 55.h),
+            padding: EdgeInsets.only(top: 30.h),
             child: Text(title1,
                 style: TextStyle(
                     height: 1.1,

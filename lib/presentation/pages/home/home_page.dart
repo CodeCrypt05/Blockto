@@ -1,4 +1,7 @@
 import 'package:blockto_app/presentation/pages/home/home_page_controller.dart';
+import 'package:blockto_app/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:blockto_app/presentation/pages/portfolio/portfolio_page_controller.dart';
+import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/widget/news_card.dart';
 import 'package:blockto_app/widget/top_coins_card.dart';
@@ -11,9 +14,12 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final homePageController = Get.find<HomePageController>();
+  final portfolioPageController = Get.find<PortfolioPageController>();
 
   @override
   Widget build(BuildContext context) {
+    double profit = portfolioPageController.portfolioProfit.value - 100.0;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -56,7 +62,7 @@ class HomePage extends StatelessWidget {
                                       ),
                                       SizedBox(height: 2.h),
                                       Text(
-                                        '\$18,368.11',
+                                        '\$ ${portfolioPageController.portfolioProfit.value.toStringAsFixed(2)}',
                                         style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 26.sp,
@@ -86,7 +92,7 @@ class HomePage extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       Text(
-                                        '\$ 1,368',
+                                        '\$ ${profit.toStringAsFixed(2)}',
                                         style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 18.sp,
@@ -133,14 +139,17 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    Text(
-                      'See all',
-                      style: TextStyle(
-                        color: const Color(0xffF5C249),
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    // InkWell(
+                    //   onTap: () => Get.toNamed(AppRoutes.marketPage),
+                    //   child: Text(
+                    //     'See all',
+                    //     style: TextStyle(
+                    //       color: const Color(0xffF5C249),
+                    //       fontSize: 14.sp,
+                    //       fontWeight: FontWeight.w500,
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
                 SizedBox(height: 16.h),
@@ -175,14 +184,14 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    Text(
-                      'See all',
-                      style: TextStyle(
-                        color: const Color(0xffF5C249),
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    // Text(
+                    //   'See all',
+                    //   style: TextStyle(
+                    //     color: const Color(0xffF5C249),
+                    //     fontSize: 14.sp,
+                    //     fontWeight: FontWeight.w500,
+                    //   ),
+                    // ),
                   ],
                 ),
                 homePageController.isLoading.value
@@ -192,10 +201,11 @@ class HomePage extends StatelessWidget {
                     : ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: 5,
+                        itemCount: homePageController.newsDataList.length,
                         itemBuilder: (context, index) {
                           return NewsCard(
                             item: homePageController.newsDataList[index],
+                            index: index,
                           );
                         })
               ],

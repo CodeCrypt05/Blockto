@@ -74,6 +74,7 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
                           ),
                           SizedBox(height: 6.h),
                           CustomTextField(
+                            autofocus: false,
                             maxLines: 1,
                             controller: signInController.emailController,
                             textAlignVertical: TextAlignVertical.bottom,
@@ -113,6 +114,7 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
                           ),
                           SizedBox(height: 6.h),
                           CustomTextField(
+                            autofocus: false,
                             isPassword: signInController.hidePassword.value,
                             maxLines: 1,
                             controller: signInController.passwordController,
@@ -221,9 +223,12 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
                       color: Colors.black,
                     ),
                     onPressed: () async {
-                      Loader.showLoader();
-                      await signInController.onSigninClicked();
-                      Get.back();
+                      if (signInController.signInFormKey.currentState!
+                          .validate()) {
+                        Loader.showLoader();
+                        await signInController.onSigninClicked();
+                        Get.back();
+                      }
                     },
                   ),
 
@@ -291,7 +296,7 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
 
   @override
   void dispose() {
-    signInController.signInFormKey.currentState!.dispose();
+    // signInController.signInFormKey.currentState!.dispose();
     super.dispose();
   }
 }

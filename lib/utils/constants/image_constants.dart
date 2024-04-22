@@ -5,9 +5,12 @@ class BImages {
   static const String buyIc = "assets/icons/buy.svg";
   static const String notificationIc = "assets/icons/notification_ic.png";
   static const String logoutIc = "assets/icons/logout_ic.svg";
+  static const String emptyNotification =
+      "assets/images/empty_notification.svg";
 
   // static const String cryptoCard = "assets/images/crypto_card.svg";
   static const String bnbCoin = "assets/images/bnb_coin.svg";
+  static const String imgProfile = "assets/images/profile_image.png";
 
   //-- Onboarding images
   static const String onboarding1 =
@@ -30,9 +33,11 @@ class BImages {
   static const String cryptoCard = "assets/images/crypto_card.svg";
   static const String smallBitCoin = "assets/images/small_bitcoin.png";
   static const String bigBitCoin = "assets/images/big_bitcoin.png";
+  static const String usdtCoin = "assets/images/usdt_logo.svg";
 
   //---
   static const String emptyBox = "assets/images/empty_box.png";
+  static const String appLogo = "assets/images/app_logo.svg";
 
   // -- Auth Assets
   static const String signInIllustration =
