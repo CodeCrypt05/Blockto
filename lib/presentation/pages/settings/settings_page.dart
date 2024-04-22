@@ -39,13 +39,14 @@ class SettingPage extends StatelessWidget {
                 CircleAvatar(
                   radius: 40.r,
                   backgroundColor: Colors.amberAccent,
+                  backgroundImage: AssetImage(BImages.imgProfile),
                 ),
                 SizedBox(width: 26.w),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Jhon Wick',
+                      settingPageController.name.value.toString(),
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.9),
                         fontSize: 18.sp,
@@ -53,7 +54,7 @@ class SettingPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'jhonwick@gmail.com',
+                      settingPageController.email.value.toString(),
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.5),
                         fontSize: 12.sp,

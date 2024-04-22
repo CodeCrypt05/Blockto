@@ -29,7 +29,7 @@ class OnBoardingScreenController extends GetxController {
     OnBoardingDataModel(
         assets: BImages.onboarding4,
         title1: "GuardianShield",
-        title2: "Ultimate Security Suite",
+        title2: "Ultimate Security",
         subtitle:
             "Experience unparalleled protection with GuardianShield, our advanced encryption and multi-layered security system."),
   ];
