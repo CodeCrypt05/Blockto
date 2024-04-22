@@ -8,12 +8,21 @@ import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SettingPage extends StatelessWidget {
   SettingPage({super.key});
 
   final settingPageController = Get.find<SettingPageController>();
   final paperCryptoScreenController = Get.find<PaperCryptoScreenController>();
+
+  void _onShare(BuildContext context) async {
+    final box = context.findRenderObject() as RenderBox?;
+    await Share.share(
+      "The link will be provided in feature",
+      sharePositionOrigin: box!.localToGlobal(Offset.infinite) & box.size,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +104,8 @@ class SettingPage extends StatelessWidget {
 
             Divider(color: Colors.grey.withOpacity(0.2), thickness: 1.4),
 
-            settingTile(Icons.share, 'Share the app', () {}, false),
+            settingTile(
+                Icons.share, 'Share the app', () => _onShare(context), false),
             //----------------------------------------------------------------
             SizedBox(height: 26.h),
             Text(
