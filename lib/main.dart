@@ -1,6 +1,5 @@
 import 'package:blockto_app/firebase_options.dart';
 import 'package:blockto_app/presentation/splash/splash_screen_binding.dart';
-
 import 'package:blockto_app/routes/app_page.dart';
 import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/utils/themes/app_theme.dart';

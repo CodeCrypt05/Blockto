@@ -201,7 +201,7 @@ class HomePage extends StatelessWidget {
                     : ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: 5,
+                        itemCount: homePageController.newsDataList.length,
                         itemBuilder: (context, index) {
                           return NewsCard(
                             item: homePageController.newsDataList[index],

@@ -35,6 +35,17 @@ class PortfolioPage extends StatelessWidget {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
+              } else if (snapshot.data!.docs.isEmpty) {
+                return Center(
+                  child: Text(
+                    "You don't have any holding! \nPlease buy some usdt to start swaping",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.6),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                );
               } else if (snapshot.data!.docs.isNotEmpty) {
                 print('data fetch successfully');
                 return Obx(
@@ -102,6 +113,7 @@ class PortfolioPage extends StatelessWidget {
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
+                          reverse: true,
                           itemCount: snapshot.data!.docs.length,
                           itemBuilder: (context, index) {
                             Map data = snapshot.data?.docs[index].data() as Map;

@@ -228,7 +228,7 @@ class OnBoardingScreen extends StatelessWidget {
                       index == 2 ? MediaQuery.of(context).size.width : 220.h)),
         ),
         Padding(
-            padding: EdgeInsets.only(top: 55.h),
+            padding: EdgeInsets.only(top: 30.h),
             child: Text(title1,
                 style: TextStyle(
                     height: 1.1,
