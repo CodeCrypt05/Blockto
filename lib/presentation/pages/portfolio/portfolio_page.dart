@@ -1,4 +1,5 @@
 import 'package:blockto_app/data/firebase_services/firebase_services.dart';
+import 'package:blockto_app/data/network/network_service.dart';
 import 'package:blockto_app/presentation/pages/portfolio/portfolio_page_controller.dart';
 import 'package:blockto_app/widget/buyed_coin_list.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,6 +17,7 @@ class PortfolioPage extends StatelessWidget {
       GlobalKey<AnimatedCircularChartState>();
   final portfolioPageController = Get.find<PortfolioPageController>();
   final FirebaseAuth auth = FirebaseService().auth;
+  final networkController = Get.find<NetworkService>();
 
   @override
   Widget build(BuildContext context) {

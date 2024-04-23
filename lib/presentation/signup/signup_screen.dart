@@ -1,3 +1,4 @@
+import 'package:blockto_app/data/network/network_service.dart';
 import 'package:blockto_app/presentation/signup/signup_screen_controller.dart';
 import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/utils/components/loader.dart';
@@ -22,6 +23,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
   final signUpController = Get.find<SignUpScreenController>();
+  final networkController = Get.find<NetworkService>();
 
   @override
   Widget build(BuildContext context) {

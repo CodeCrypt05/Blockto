@@ -11,6 +11,7 @@ class BImages {
   // static const String cryptoCard = "assets/images/crypto_card.svg";
   static const String bnbCoin = "assets/images/bnb_coin.svg";
   static const String imgProfile = "assets/images/profile_image.png";
+  static const String noInternet = "assets/images/no_internet.svg";
 
   //-- Onboarding images
   static const String onboarding1 =

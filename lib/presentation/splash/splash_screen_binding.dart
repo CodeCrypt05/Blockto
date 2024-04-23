@@ -1,3 +1,4 @@
+import 'package:blockto_app/data/network/network_service.dart';
 import 'package:blockto_app/presentation/home/home_screen_controller.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen_controller.dart';
 import 'package:blockto_app/presentation/pages/home/home_page_controller.dart';
@@ -11,9 +12,7 @@ class SplashScreenBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => SplashScreenController());
-
     Get.lazyPut(() => HomeScreenController());
-
     //-- pages
     Get.lazyPut(() => HomePageController());
     Get.lazyPut(() => MarketPageController());
@@ -22,5 +21,7 @@ class SplashScreenBinding extends Bindings {
 
     //- Onboarding
     Get.lazyPut(() => OnBoardingScreenController());
+
+    Get.lazyPut(() => NetworkService());
   }
 }

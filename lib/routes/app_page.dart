@@ -4,6 +4,7 @@ import 'package:blockto_app/presentation/home/home_screen.dart';
 import 'package:blockto_app/presentation/home/home_screen_binding.dart';
 import 'package:blockto_app/presentation/news/news_screen.dart';
 import 'package:blockto_app/presentation/news/news_screen_binding.dart';
+import 'package:blockto_app/presentation/no_internet_connection.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen_binding.dart';
 import 'package:blockto_app/presentation/pages/home/home_page.dart';
@@ -95,6 +96,11 @@ class AppPages {
       transition: Transition.rightToLeft,
       transitionDuration: Duration(milliseconds: 300),
       binding: EmptyNotificationScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.noInternetScreen,
+      page: () => NoInternetConnection(),
+      binding: SplashScreenBinding(),
     ),
 
     //----- Auth Screen

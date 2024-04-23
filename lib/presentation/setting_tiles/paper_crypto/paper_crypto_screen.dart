@@ -1,3 +1,4 @@
+import 'package:blockto_app/data/network/network_service.dart';
 import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_controller.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
@@ -11,6 +12,7 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
   PaperCryptoScreen({super.key});
 
   final paperCryptoController = Get.find<PaperCryptoScreenController>();
+  final networkController = Get.find<NetworkService>();
 
   @override
   Widget build(BuildContext context) {
