@@ -1,3 +1,4 @@
+import 'package:blockto_app/data/network/network_service.dart';
 import 'package:blockto_app/models/coin_chart_model.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_controller.dart';
 import 'package:blockto_app/widget/selected_coin_bottom_appbar.dart';
@@ -16,6 +17,7 @@ class SelectedCoinPage extends StatefulWidget {
 
 class _SelectedCoinPageState extends State<SelectedCoinPage> {
   final selectedCoinPageController = Get.find<SelectedCoinPageController>();
+  final networkController = Get.find<NetworkService>();
 
   late TrackballBehavior trackballBehavior;
 

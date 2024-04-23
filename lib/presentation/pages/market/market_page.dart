@@ -1,3 +1,4 @@
+import 'package:blockto_app/data/network/network_service.dart';
 import 'package:blockto_app/presentation/pages/home/home_page_controller.dart';
 import 'package:blockto_app/presentation/pages/market/market_page_controller.dart';
 import 'package:blockto_app/widget/coin_list_structure.dart';
@@ -12,6 +13,7 @@ class MarketPage extends StatelessWidget {
 
   final marketPageController = Get.find<MarketPageController>();
   final homePageController = Get.find<HomePageController>();
+  final networkController = Get.find<NetworkService>();
 
   @override
   Widget build(BuildContext context) {

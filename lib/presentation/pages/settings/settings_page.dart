@@ -1,4 +1,5 @@
 import 'package:blockto_app/data/local_storage/local_storage.dart';
+import 'package:blockto_app/data/network/network_service.dart';
 import 'package:blockto_app/presentation/pages/settings/settings_page_controller.dart';
 import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_controller.dart';
 import 'package:blockto_app/routes/app_routes.dart';
@@ -15,6 +16,7 @@ class SettingPage extends StatelessWidget {
 
   final settingPageController = Get.find<SettingPageController>();
   final paperCryptoScreenController = Get.find<PaperCryptoScreenController>();
+  final networkController = Get.find<NetworkService>();
 
   void _onShare(BuildContext context) async {
     final box = context.findRenderObject() as RenderBox?;
