@@ -97,6 +97,7 @@ class SwapCoinScreenController extends GetxController {
         swapCoinControllerText.clear();
         Get.back();
       } on FirebaseAuthException catch (error) {
+        Get.back();
         Get.snackbar(error.message ?? "process failed", "Please try again",
             snackPosition: SnackPosition.BOTTOM,
             colorText: Colors.red,
