@@ -1,4 +1,5 @@
 import 'package:blockto_app/data/network/network_service.dart';
+import 'package:blockto_app/presentation/no_internet_connection.dart';
 import 'package:blockto_app/presentation/pages/home/home_page_controller.dart';
 import 'package:blockto_app/presentation/pages/market/market_page_controller.dart';
 import 'package:blockto_app/widget/coin_list_structure.dart';
@@ -20,22 +21,25 @@ class MarketPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Obx(
-          () => Column(
-            children: [
-              SizedBox(
-                // color: Colors.blueAccent,
-                width: double.infinity,
-                height: 36.h,
-                child: CustomTabsBar(marketController: marketPageController),
-              ),
-              SizedBox(height: 18.h),
-              marketPageController.position.value == 0
-                  ? allCoins(homePageController.coinMarketList)
-                  : marketPageController.position.value == 1
-                      ? watchList()
-                      : SizedBox.shrink(),
-            ],
-          ),
+          () => networkController.connectionStatus.value == 1
+              ? Column(
+                  children: [
+                    SizedBox(
+                      // color: Colors.blueAccent,
+                      width: double.infinity,
+                      height: 36.h,
+                      child:
+                          CustomTabsBar(marketController: marketPageController),
+                    ),
+                    SizedBox(height: 18.h),
+                    marketPageController.position.value == 0
+                        ? allCoins(homePageController.coinMarketList)
+                        : marketPageController.position.value == 1
+                            ? watchList()
+                            : SizedBox.shrink(),
+                  ],
+                )
+              : const NoInternetConnection(),
         ),
       ),
     );

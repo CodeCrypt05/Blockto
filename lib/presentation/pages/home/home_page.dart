@@ -1,9 +1,7 @@
 import 'package:blockto_app/data/network/network_service.dart';
 import 'package:blockto_app/presentation/no_internet_connection.dart';
 import 'package:blockto_app/presentation/pages/home/home_page_controller.dart';
-import 'package:blockto_app/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:blockto_app/presentation/pages/portfolio/portfolio_page_controller.dart';
-import 'package:blockto_app/routes/app_routes.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/widget/news_card.dart';
 import 'package:blockto_app/widget/top_coins_card.dart';
@@ -18,6 +16,7 @@ class HomePage extends StatelessWidget {
   final homePageController = Get.find<HomePageController>();
   final portfolioPageController = Get.find<PortfolioPageController>();
   final networkController = Get.find<NetworkService>();
+  final double price = -100.00;
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +89,8 @@ class HomePage extends StatelessWidget {
                                       ],
                                     ),
                                     Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
                                           padding: EdgeInsets.only(
@@ -97,7 +98,9 @@ class HomePage extends StatelessWidget {
                                           child: Row(
                                             children: [
                                               Text(
-                                                '\$ ${profit.toStringAsFixed(2)}',
+                                                profit == price
+                                                    ? '\$ 0'
+                                                    : '\$ ${profit.toStringAsFixed(2)} ',
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 18.sp,
@@ -116,7 +119,7 @@ class HomePage extends StatelessWidget {
                                           ),
                                         ),
                                         Container(
-                                          padding: EdgeInsets.only(left: 40.w),
+                                          padding: EdgeInsets.only(right: 20.w),
                                           child: Image.asset(
                                             BImages.bigBitCoin,
                                             fit: BoxFit.cover,

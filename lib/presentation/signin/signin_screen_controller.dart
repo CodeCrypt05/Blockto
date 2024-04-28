@@ -24,7 +24,6 @@ class SignInScreenController extends GetxController {
           password: passwordController.text.toString(),
         );
         Get.back();
-
         Get.offAllNamed(AppRoutes.homeScreen);
       } on FirebaseAuthException catch (error) {
         print("email is wrong");
@@ -38,6 +37,8 @@ class SignInScreenController extends GetxController {
           backgroundColor: Colors.white,
         );
       }
+    } else {
+      Get.back();
     }
   }
 

@@ -228,6 +228,7 @@ class _SignUpScreenState extends State<SignInScreen> with ValidationsMixin {
                       if (signInController.signInFormKey.currentState!
                           .validate()) {
                         Loader.showLoader();
+
                         await signInController.onSigninClicked();
                         Get.back();
                       }

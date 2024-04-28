@@ -11,6 +11,7 @@ class BuyedCoinList extends StatelessWidget {
   final double currentCoinValue;
   final String imageUrl;
   final double initialInvestment;
+  final int index;
   const BuyedCoinList({
     super.key,
     required this.coinBought,
@@ -19,13 +20,23 @@ class BuyedCoinList extends StatelessWidget {
     required this.currentCoinValue,
     required this.imageUrl,
     required this.initialInvestment,
+    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Get.toNamed(AppRoutes.selectedCoinScreen);
+        if (symbol.toString() != 'usdt') {
+          Get.toNamed(AppRoutes.sellCoinScreen, arguments: [
+            coinBought,
+            coinName,
+            symbol,
+            currentCoinValue,
+            imageUrl,
+            initialInvestment,
+          ]);
+        }
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 12.h),
@@ -35,12 +46,19 @@ class BuyedCoinList extends StatelessWidget {
           children: [
             Row(
               children: [
-                Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                  height: 30.h,
-                  width: 30.w,
-                ),
+                imageUrl.isNotEmpty
+                    ? Image.network(
+                        imageUrl,
+                        fit: BoxFit.cover,
+                        height: 30.h,
+                        width: 30.w,
+                      )
+                    : Image.network(
+                        'https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg',
+                        fit: BoxFit.cover,
+                        height: 30.h,
+                        width: 30.w,
+                      ),
                 SizedBox(width: 14.w),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,32 +85,11 @@ class BuyedCoinList extends StatelessWidget {
                 ),
               ],
             ),
-            // Container(
-            //   // color: Colors.amber.withOpacity(0.3),
-            //   height: 30.h,
-            //   width: 80.w,
-            //   child: Sparkline(
-            //     data: item.sparklineIn7D.price,
-            //     lineWidth: 1.2,
-            //     lineColor: item.marketCapChangePercentage24H >= 0
-            //         ? Colors.green
-            //         : Colors.red,
-            //     // fillMode: FillMode.below,
-            //     // fillGradient: LinearGradient(
-            //     //   begin: Alignment.topCenter,
-            //     //   end: Alignment.bottomCenter,
-            //     //   stops: const [0.0, 0.7],
-            //     //   colors: item.marketCapChangePercentage24H >= 0
-            //     //       ? [Colors.green.shade800, Colors.green.shade200]
-            //     //       : [Colors.red.shade800, Colors.red.shade200],
-            //     // ),
-            //   ),
-            // ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '\$  ${coinBought.toStringAsFixed(2)}',
+                  coinBought.toStringAsFixed(2),
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.sp,
