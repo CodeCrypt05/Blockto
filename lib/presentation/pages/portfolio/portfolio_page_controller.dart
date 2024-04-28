@@ -55,7 +55,9 @@ class PortfolioPageController extends GetxController {
       });
 
       // Print the map
+
       print('Initial investment map:');
+      savedCoin.write('savedCoin', initialInvestmentMap.value);
       print(initialInvestmentMap.value);
     });
   }

@@ -36,7 +36,8 @@ class PaperCryptoScreenController extends GetxController {
           .collection('coins')
           .doc(coinSymbol)
           .set({
-        'img_link': 'https://cryptologos.cc/logos/tether-usdt-logo.svg?v=031',
+        'img_link':
+            'https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661',
         'coin_name': coinName,
         'coin_symbol': coinSymbol,
         'initial_investment': initialInvestment,

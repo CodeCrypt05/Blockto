@@ -17,6 +17,8 @@ import 'package:blockto_app/presentation/pages/settings/settings_page.dart';
 import 'package:blockto_app/presentation/pages/settings/settings_page_bindings.dart';
 import 'package:blockto_app/presentation/sell_coin/sell_coin_binding.dart';
 import 'package:blockto_app/presentation/sell_coin/sell_coin_screen.dart';
+import 'package:blockto_app/presentation/setting_tiles/about_us/about_us_binding.dart';
+import 'package:blockto_app/presentation/setting_tiles/about_us/about_us_screen.dart';
 import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_binding.dart';
 import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_screen.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_binding.dart';
@@ -108,6 +110,11 @@ class AppPages {
       name: AppRoutes.sellCoinScreen,
       page: () => SellCoin(),
       binding: SellCoinBindings(),
+    ),
+    GetPage(
+      name: AppRoutes.aboutUsScreen,
+      page: () => const AbpoutUsScreen(),
+      binding: AboutUsScreenBindings(),
     ),
 
     //----- Auth Screen
