@@ -128,6 +128,7 @@ class PortfolioPage extends StatelessWidget {
                                     Map data = snapshot.data?.docs[index].data()
                                         as Map;
                                     return BuyedCoinList(
+                                      index: index,
                                       coinBought: data['coin_bought'],
                                       coinName: data['coin_name'],
                                       symbol: data['coin_symbol'],

@@ -85,6 +85,7 @@ class CustomSnackbar extends StatelessWidget {
                 child: SvgPicture.asset(
                   typeImage,
                   height: 16.h,
+                  color: Colors.white,
                 ),
               ),
             ],

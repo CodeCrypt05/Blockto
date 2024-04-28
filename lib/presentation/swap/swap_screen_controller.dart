@@ -49,7 +49,7 @@ class SwapCoinScreenController extends GetxController {
     print('stored data: $storedCoin');
     String? key = 'usdt';
     double? storedPrice = storedCoin[key];
-    double inputValue = double.parse(swapCoinControllerText.text.toString());
+    double inputValue = double.parse(swapCoinControllerText.text);
 
     double result = inputValue * coinPrice.value;
 
@@ -95,7 +95,7 @@ class SwapCoinScreenController extends GetxController {
           backgroundColor: Colors.black,
         );
         swapCoinControllerText.clear();
-        Get.back();
+        Get.close(2);
       } on FirebaseAuthException catch (error) {
         Get.back();
         Get.snackbar(error.message ?? "process failed", "Please try again",
