@@ -4,6 +4,7 @@ import 'package:blockto_app/presentation/home/home_screen.dart';
 import 'package:blockto_app/presentation/home/home_screen_binding.dart';
 import 'package:blockto_app/presentation/news/news_screen.dart';
 import 'package:blockto_app/presentation/news/news_screen_binding.dart';
+import 'package:blockto_app/presentation/no_internet_connection.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen.dart';
 import 'package:blockto_app/presentation/onboarding/onboarding_screen_binding.dart';
 import 'package:blockto_app/presentation/pages/home/home_page.dart';
@@ -14,6 +15,8 @@ import 'package:blockto_app/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:blockto_app/presentation/pages/portfolio/portfolio_page_binding.dart';
 import 'package:blockto_app/presentation/pages/settings/settings_page.dart';
 import 'package:blockto_app/presentation/pages/settings/settings_page_bindings.dart';
+import 'package:blockto_app/presentation/sell_coin/sell_coin_binding.dart';
+import 'package:blockto_app/presentation/sell_coin/sell_coin_screen.dart';
 import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_binding.dart';
 import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_screen.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_binding.dart';
@@ -95,6 +98,16 @@ class AppPages {
       transition: Transition.rightToLeft,
       transitionDuration: Duration(milliseconds: 300),
       binding: EmptyNotificationScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.noInternetScreen,
+      page: () => NoInternetConnection(),
+      binding: SplashScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.sellCoinScreen,
+      page: () => SellCoin(),
+      binding: SellCoinBindings(),
     ),
 
     //----- Auth Screen

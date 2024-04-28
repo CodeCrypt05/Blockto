@@ -46,13 +46,21 @@ class SignUpScreenController extends GetxController {
 
         Get.offAllNamed(AppRoutes.homeScreen);
       } on FirebaseAuthException catch (error) {
-        print("email is wrong");
-        Get.back();
+        Get.snackbar(
+          error.message ?? error.message.toString() ?? "Email is wrong",
+          "Please try again",
+          snackPosition: SnackPosition.BOTTOM,
+          colorText: Colors.red,
+        );
+        Get.close(1);
         if (error.code == 'email-already-in-use') {}
-        // SnackbarCompnent.showSnackbar(
-        //     error.message.toString() ?? "Registration failed",
-        //     "Please try again",
-        //     Colors.red);
+
+        Get.snackbar(
+          error.message ?? error.message.toString() ?? "Registration failed",
+          "Please try again",
+          snackPosition: SnackPosition.BOTTOM,
+          colorText: Colors.red,
+        );
       }
     }
   }

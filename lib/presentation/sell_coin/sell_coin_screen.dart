@@ -1,45 +1,44 @@
-import 'package:blockto_app/data/network/network_service.dart';
-import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto_controller.dart';
-import 'package:blockto_app/utils/constants/image_constants.dart';
+import 'package:blockto_app/presentation/sell_coin/sell_coin_controller.dart';
+import 'package:blockto_app/utils/components/loader.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
 import 'package:blockto_app/widget/auth_button/auth_buttons.dart';
-import 'package:blockto_app/widget/common/custom_button.dart';
 import 'package:blockto_app/widget/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:svg_flutter/svg.dart';
 
-class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
-  PaperCryptoScreen({super.key});
+class SellCoin extends StatelessWidget with ValidationsMixin {
+  SellCoin({super.key});
 
-  final paperCryptoController = Get.find<PaperCryptoScreenController>();
-  final networkController = Get.find<NetworkService>();
+  final sellCoinController = Get.find<SellCoinController>();
 
   @override
   Widget build(BuildContext context) {
+    var arguments = Get.arguments;
+    double amount = arguments[0];
+    print(arguments[1].toString());
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
         body: Container(
           margin: EdgeInsetsDirectional.symmetric(horizontal: 20.h),
           child: Form(
-            key: paperCryptoController.paperCryptoFormKey,
+            key: sellCoinController.sellCoinForm,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 28.h),
                 Row(
                   children: [
-                    SvgPicture.asset(
-                      BImages.usdtCoin,
+                    Image.network(
+                      arguments[4],
                       fit: BoxFit.cover,
                       height: 30.h,
                       width: 30.h,
                     ),
                     SizedBox(width: 14.h),
                     Text(
-                      "Buy Tether USDT",
+                      "Sell Coin",
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w800,
@@ -49,8 +48,27 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
                   ],
                 ),
                 SizedBox(height: 26.h),
+
                 Text(
-                  "I want to get",
+                  "You hold the coins : ${arguments[0].toInt()} ",
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xffF5C249).withOpacity(0.6),
+                  ),
+                ),
+                SizedBox(height: 6.h),
+                Text(
+                  "Current market price : ${arguments[3]} ",
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xffF5C249).withOpacity(0.6),
+                  ),
+                ),
+                SizedBox(height: 6.h),
+                Text(
+                  "Enter the coins ",
                   style: TextStyle(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w500,
@@ -61,20 +79,12 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
                 CustomTextField(
                   autofocus: true,
                   maxLines: 1,
-                  controller: paperCryptoController.coinPriceController,
+                  controller: sellCoinController.sellCoinTextController,
                   textAlignVertical: TextAlignVertical.bottom,
                   // hintText: "Enter your name",
                   textInputType: TextInputType.number,
                   // prefixIcon: ,
-                  suffixIcon: Container(
-                    width: double.minPositive,
-                    alignment: Alignment.centerLeft,
-                    child: Icon(
-                      Icons.attach_money,
-                      size: 20.h,
-                      color: const Color(0xffF5C249).withOpacity(0.8),
-                    ),
-                  ),
+
                   hintStyle: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
@@ -86,21 +96,7 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
                     color: const Color(0xffF5C249).withOpacity(0.8),
                   ),
                   validator: validatePrice,
-                  onFieldSubmitted: (p0) {
-                    if (paperCryptoController.paperCryptoFormKey.currentState!
-                        .validate()) {
-                      paperCryptoController.addCointoPortfolio(
-                        "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
-                        'Tether USDt',
-                        'usdt',
-                        0.0,
-                        double.parse(
-                            paperCryptoController.coinPriceController.text),
-                        1.0,
-                      );
-                      Get.close(1);
-                    }
-                  },
+                  onFieldSubmitted: (p0) {},
                 ),
                 SizedBox(height: 16.h),
                 // Text(
@@ -118,16 +114,16 @@ class PaperCryptoScreen extends StatelessWidget with ValidationsMixin {
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    paperCryptoController.addCointoPortfolio(
-                      "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
-                      'Tether USDt',
-                      'usdt',
-                      0.0,
-                      double.parse(
-                          paperCryptoController.coinPriceController.text),
-                      1.0,
-                    );
-                    Get.close(1);
+                    if (int.parse(sellCoinController
+                                .sellCoinTextController.text) <=
+                            arguments[0].toInt() &&
+                        sellCoinController.sellCoinForm.currentState!
+                            .validate()) {
+                      Loader.showLoader();
+                      sellCoinController.sellCoins(
+                          arguments[0], arguments[2], arguments[3]);
+                      Get.back();
+                    }
                   },
                 ),
               ],
