@@ -109,8 +109,8 @@ class SettingPage extends StatelessWidget {
                     Divider(
                         color: Colors.grey.withOpacity(0.2), thickness: 1.4),
 
-                    settingTile(
-                        Icons.info_outline_rounded, 'About Us', () {}, false),
+                    settingTile(Icons.info_outline_rounded, 'About Us',
+                        () => Get.toNamed(AppRoutes.aboutUsScreen), false),
 
                     Divider(
                         color: Colors.grey.withOpacity(0.2), thickness: 1.4),

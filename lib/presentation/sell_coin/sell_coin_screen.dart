@@ -108,9 +108,9 @@ class SellCoin extends StatelessWidget with ValidationsMixin {
                 //   ),
                 // ),
                 AuthButton(
-                  label: "Buy Coin",
+                  label: "Swap Coin",
                   icons: const Icon(
-                    Icons.add_card_outlined,
+                    Icons.swap_horiz_sharp,
                     color: Colors.black,
                   ),
                   onPressed: () {

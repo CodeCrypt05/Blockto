@@ -44,7 +44,7 @@ class SwapCoinScreenController extends GetxController {
     }
   }
 
-  void swapCoinClicked() async {
+  Future<void> swapCoinClicked() async {
     Map<String?, dynamic> storedCoin = coin.read('coins');
     print('stored data: $storedCoin');
     String? key = 'usdt';

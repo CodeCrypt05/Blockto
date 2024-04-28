@@ -7,6 +7,7 @@ class SelectedCoinPageController extends GetxController {
   var isLoading = false.obs;
   dynamic data = '';
   RxInt selectedIndex = 0.obs;
+  RxBool watchList = false.obs;
   // List intervalList = ['D', 'W', 'M', '3m', '6m', 'Y'];
 
   Map<String, String> intervalMap = {

@@ -10,6 +10,7 @@ class AppRoutes {
   static const String emptyNotificationScreen = "/emptyNotificationScreen";
   static const String noInternetScreen = "/noInternetScreen";
   static const String sellCoinScreen = "/sellCoinScreen";
+  static const String aboutUsScreen = "/aboutUsScreen";
 
   // ----------------------------------------------------------------
   static const String homePage = "/homePage";
