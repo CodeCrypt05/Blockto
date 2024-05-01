@@ -39,12 +39,19 @@ class _SelectedCoinPageState extends State<SelectedCoinPage> {
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 12.w),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.favorite_border,
-                size: 24.h,
-                color: Colors.white.withOpacity(0.8),
+            child: Obx(
+              () => IconButton(
+                onPressed: () {
+                  selectedCoinPageController.watchList.value =
+                      !selectedCoinPageController.watchList.value;
+                },
+                icon: Icon(
+                  Icons.favorite,
+                  size: 24.h,
+                  color: selectedCoinPageController.watchList.value
+                      ? Colors.pinkAccent
+                      : Colors.white.withOpacity(0.8),
+                ),
               ),
             ),
           ),

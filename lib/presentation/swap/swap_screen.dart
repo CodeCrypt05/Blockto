@@ -112,14 +112,6 @@ class SwapCoinScreen extends StatelessWidget with ValidationsMixin {
                         // },
                       ),
                       SizedBox(height: 16.h),
-                      Text(
-                        "Estimated price ~ ${10}",
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xffF5C249).withOpacity(0.6),
-                        ),
-                      ),
                       AuthButton(
                         label: 'Swap',
                         icons: const Icon(Icons.arrow_forward),
@@ -127,7 +119,7 @@ class SwapCoinScreen extends StatelessWidget with ValidationsMixin {
                           if (swapCoinController.swapCoinFormKey.currentState!
                               .validate()) {
                             Loader.showLoader();
-                            swapCoinController.swapCoinClicked();
+                            await swapCoinController.swapCoinClicked();
                             Get.back();
                           }
                         },

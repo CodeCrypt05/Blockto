@@ -19,7 +19,7 @@ class SellCoinController extends GetxController {
   ) async {
     print(coinBought);
     print(coinSymbol);
-    Map<String?, dynamic> storedMap = coin.read('coins');
+    Map<String?, dynamic> storedMap = savedCoin.read('savedCoin');
     storedMap.forEach((key, value) {
       print('$key: $value');
       if (key == 'usdt') {
@@ -27,7 +27,9 @@ class SellCoinController extends GetxController {
       }
     });
     currentCoinValue *= double.parse(sellCoinTextController.text);
+    print("value here: ${currentCoinValue}");
     usdtPrice.value += currentCoinValue;
+    print("value addition: ${usdtPrice.value}");
     try {
       final double sellCoin = double.parse(sellCoinTextController.text);
       if (sellCoin == coinBought) {

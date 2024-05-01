@@ -108,9 +108,9 @@ class SellCoin extends StatelessWidget with ValidationsMixin {
                 //   ),
                 // ),
                 AuthButton(
-                  label: "Buy Coin",
+                  label: "Swap Coin",
                   icons: const Icon(
-                    Icons.add_card_outlined,
+                    Icons.swap_horiz_sharp,
                     color: Colors.black,
                   ),
                   onPressed: () {
@@ -123,6 +123,13 @@ class SellCoin extends StatelessWidget with ValidationsMixin {
                       sellCoinController.sellCoins(
                           arguments[0], arguments[2], arguments[3]);
                       Get.back();
+                    } else {
+                      Get.snackbar(
+                          "You are holding ${arguments[0].toInt()} ${arguments[1]} coins",
+                          "Please enter valid value",
+                          snackPosition: SnackPosition.BOTTOM,
+                          colorText: Colors.red,
+                          backgroundColor: const Color.fromARGB(255, 0, 0, 0));
                     }
                   },
                 ),
