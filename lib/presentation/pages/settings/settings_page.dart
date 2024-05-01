@@ -109,6 +109,17 @@ class SettingPage extends StatelessWidget {
                     Divider(
                         color: Colors.grey.withOpacity(0.2), thickness: 1.4),
 
+                    SizedBox(height: 14.h),
+
+                    settingTile(Icons.link, 'Link Bank AC', () {
+                      if (isChange) {
+                      } else {
+                        Get.toNamed(AppRoutes.paperCryptoScreen);
+                      }
+                    }, isChange),
+                    Divider(
+                        color: Colors.grey.withOpacity(0.2), thickness: 1.4),
+
                     settingTile(Icons.info_outline_rounded, 'About Us',
                         () => Get.toNamed(AppRoutes.aboutUsScreen), false),
 
