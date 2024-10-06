@@ -1,6 +1,10 @@
 # Blockto - Mock Cryptocurrency Trading Platform
 Blockto is a mock cryptocurrency trading platform where users can practice trading without investing real money. The app provides users with real-time cryptocurrency charts, blockchain news, and a paper trading experience to sharpen their trading skills.
 
+<p align="center">
+  <img src = "https://github.com/user-attachments/assets/57eb4720-5ac8-4671-a774-4130c0323afb" width="100%" height = "450">
+</p>
+
 ## Features
 ### 🔐 User Authentication
 * Register: Create an account using your email and password.
