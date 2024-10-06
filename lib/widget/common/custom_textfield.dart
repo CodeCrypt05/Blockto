@@ -105,24 +105,24 @@ class CustomTextField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius.r)),
           borderSide:
-              BorderSide(color: Color(0xffF5C249).withOpacity(0.4), width: 1.6),
+              BorderSide(color: const Color(0xffF5C249).withOpacity(0.4), width: 1.6),
         ),
         disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(radius.r)),
             borderSide: const BorderSide(color: TColors.primary, width: 1.0)),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius.r)),
-          borderSide: BorderSide(color: Color(0xffF5C249), width: 1.6),
+          borderSide: const BorderSide(color: Color(0xffF5C249), width: 1.6),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius.r)),
           borderSide:
-              BorderSide(color: Color(0xffF5C249).withOpacity(0.4), width: 1.0),
+              BorderSide(color: const Color(0xffF5C249).withOpacity(0.4), width: 1.0),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius)),
           borderSide:
-              BorderSide(color: Color(0xffF5C249).withOpacity(0.4), width: 1.0),
+              BorderSide(color: const Color(0xffF5C249).withOpacity(0.4), width: 1.0),
         ),
       ),
     );

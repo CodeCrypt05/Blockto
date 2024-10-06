@@ -1,8 +1,5 @@
-import 'package:blockto_app/presentation/home/home_screen.dart';
-import 'package:blockto_app/presentation/onboarding/onboarding_screen.dart';
 import 'package:blockto_app/presentation/splash/splash_screen_controller.dart';
 import 'package:blockto_app/utils/constants/image_constants.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:svg_flutter/svg.dart';

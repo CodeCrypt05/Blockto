@@ -52,7 +52,7 @@ class _AppDrawerState extends State<AppDrawerWidget> {
           // ),
 
           ListTile(
-            leading: Icon(Icons.logout_outlined),
+            leading: const Icon(Icons.logout_outlined),
             title: Text('Logout'.tr),
             onTap: () async {},
           ),

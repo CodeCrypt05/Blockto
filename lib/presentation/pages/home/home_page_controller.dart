@@ -34,7 +34,6 @@ class HomePageController extends GetxController {
     try {
       isLoading(true);
       var data = await NewsApi().getNewsData();
-
       var newsData = data.map((json) => Result.fromJson(json)).toList();
       newsDataList.assignAll(newsData);
     } finally {

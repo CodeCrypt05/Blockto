@@ -4,13 +4,12 @@ import 'package:blockto_app/presentation/no_internet_connection.dart';
 import 'package:blockto_app/presentation/selected_coin/selected_coin_controller.dart';
 import 'package:blockto_app/widget/selected_coin_bottom_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class SelectedCoinPage extends StatefulWidget {
-  SelectedCoinPage({super.key});
+  const SelectedCoinPage({super.key});
 
   @override
   State<SelectedCoinPage> createState() => _SelectedCoinPageState();
@@ -89,7 +88,7 @@ class _SelectedCoinPageState extends State<SelectedCoinPage> {
                         ],
                       ),
                       Text(
-                        '\$ ' + data.currentPrice.toString(),
+                        '\$ ${data.currentPrice}',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 26.sp,
@@ -99,8 +98,7 @@ class _SelectedCoinPageState extends State<SelectedCoinPage> {
                       Text(
                         data.marketCapChangePercentage24H < 0
                             ? data.marketCapChangePercentage24H.toString()
-                            : '+ ' +
-                                data.marketCapChangePercentage24H.toString(),
+                            : '+ ${data.marketCapChangePercentage24H}',
                         style: TextStyle(
                           color: data.marketCapChangePercentage24H < 0
                               ? Colors.red
@@ -110,7 +108,7 @@ class _SelectedCoinPageState extends State<SelectedCoinPage> {
                         ),
                       ),
                       SizedBox(height: 20.h),
-                      Container(
+                      SizedBox(
                         height: 200.h,
                         width: double.infinity,
                         // color: Colors.blue.withOpacity(0.2),
@@ -160,11 +158,11 @@ class _SelectedCoinPageState extends State<SelectedCoinPage> {
                         height: 40.h,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            color: Color(0xff757575).withOpacity(0.2),
+                            color: const Color(0xff757575).withOpacity(0.2),
                             borderRadius: BorderRadius.circular(16.r)),
                         child: ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           scrollDirection: Axis.horizontal,
                           itemCount:
                               selectedCoinPageController.intervalMap.length,
@@ -193,7 +191,7 @@ class _SelectedCoinPageState extends State<SelectedCoinPage> {
                                       color: selectedCoinPageController
                                                   .selectedIndex.value ==
                                               index
-                                          ? Color(0xff757575).withOpacity(0.3)
+                                          ? const Color(0xff757575).withOpacity(0.3)
                                           : null,
                                       borderRadius: BorderRadius.circular(8.r)),
                                   child: Text(

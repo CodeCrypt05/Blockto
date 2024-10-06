@@ -61,7 +61,7 @@ class AppPages {
     //------Screens --------------------------------------------------------
     GetPage(
       name: AppRoutes.selectedCoinScreen,
-      page: () => SelectedCoinPage(),
+      page: () => const SelectedCoinPage(),
       binding: SelectedCoinPageBinding(),
     ),
     GetPage(
@@ -96,14 +96,14 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.emptyNotificationScreen,
-      page: () => EmptyNotificationScreen(),
+      page: () => const EmptyNotificationScreen(),
       transition: Transition.rightToLeft,
-      transitionDuration: Duration(milliseconds: 300),
+      transitionDuration: const Duration(milliseconds: 300),
       binding: EmptyNotificationScreenBinding(),
     ),
     GetPage(
       name: AppRoutes.noInternetScreen,
-      page: () => NoInternetConnection(),
+      page: () => const NoInternetConnection(),
       binding: SplashScreenBinding(),
     ),
     GetPage(

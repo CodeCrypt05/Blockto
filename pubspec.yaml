@@ -39,10 +39,10 @@ dependencies:
   google_fonts: ^6.2.1
   svg_flutter: ^0.0.1
   http: ^1.2.1
-  chart_sparkline: ^1.0.15+1
-  syncfusion_flutter_charts: ^25.1.37
+  chart_sparkline: ^1.1.1
+  syncfusion_flutter_charts: ^27.1.51
   smooth_page_indicator: ^1.1.0
-  awesome_circular_chart: ^1.0.0
+  awesome_circular_chart: ^1.1.0
   firebase_auth: ^4.19.1
   image_picker: ^1.0.7
   firebase_core: ^2.29.0
@@ -52,6 +52,7 @@ dependencies:
   share_plus: ^8.0.3
   internet_connection_checker: ^1.0.0+1
   connectivity_plus: ^6.0.3
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +84,7 @@ flutter:
     - assets/images/onboarding_images/
     - assets/icons/bottom_appbar/
     - assets/icons/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

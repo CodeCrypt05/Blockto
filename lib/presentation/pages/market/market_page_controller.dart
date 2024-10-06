@@ -6,8 +6,4 @@ class MarketPageController extends GetxController {
   var coinMarketList = <CoinMarketModel>[].obs;
   var topGainersCoinList = <CoinMarketModel>[].obs;
 
-  @override
-  void onInit() async {
-    super.onInit();
-  }
 }

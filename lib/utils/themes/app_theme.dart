@@ -10,8 +10,8 @@ class TAppTheme {
     primaryColor: Colors.black,
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: appBarTheme,
-    bottomAppBarTheme: BottomAppBarTheme(color: Colors.black),
-    bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black),
+    bottomAppBarTheme: const BottomAppBarTheme(color: Colors.black),
+    bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.black),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.black,
     ),

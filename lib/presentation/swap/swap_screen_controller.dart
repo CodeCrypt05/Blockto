@@ -104,6 +104,6 @@ class SwapCoinScreenController extends GetxController {
             backgroundColor: Colors.black);
       }
     }
-    print('here is your value: ${storedPrice}');
+    print('here is your value: $storedPrice');
   }
 }

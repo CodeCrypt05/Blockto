@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:svg_flutter/svg.dart';
 
 class BottomAppbarWidget extends StatelessWidget {
-  BottomAppbarWidget({super.key, required this.homeController});
+  const BottomAppbarWidget({super.key, required this.homeController});
 
   final HomeScreenController homeController;
 
@@ -14,7 +14,7 @@ class BottomAppbarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       surfaceTintColor: Colors.black,
-      color: Color(0xff262932).withOpacity(0.8),
+      color: const Color(0xff262932).withOpacity(0.8),
       child: SizedBox(
         height: kBottomNavigationBarHeight,
         child: Row(
@@ -55,16 +55,16 @@ class BottomAppbarWidget extends StatelessWidget {
                 height: 26.h,
                 width: 26.w,
                 color: index == homeController.tabIndex.value
-                    ? Color(0xffF5C249)
-                    : Color(0xff787A8D),
+                    ? const Color(0xffF5C249)
+                    : const Color(0xff787A8D),
               ),
               SizedBox(height: 2.h),
               Text(
                 title,
                 style: TextStyle(
                   color: index == homeController.tabIndex.value
-                      ? Color(0xffF5C249)
-                      : Color(0xff787A8D),
+                      ? const Color(0xffF5C249)
+                      : const Color(0xff787A8D),
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w300,
                 ),

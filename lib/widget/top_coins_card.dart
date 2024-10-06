@@ -48,9 +48,9 @@ class TopCoinsCard extends StatelessWidget {
             ),
             SizedBox(height: 6.h),
             Text(
-              '\$ ' + item.currentPrice.toString(),
+              '\$ ${item.currentPrice}',
               style: TextStyle(
-                color: Color(0xffA7AEBF),
+                color: const Color(0xffA7AEBF),
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
               ),

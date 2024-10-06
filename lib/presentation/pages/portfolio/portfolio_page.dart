@@ -115,7 +115,7 @@ class PortfolioPage extends StatelessWidget {
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.w500,
                                     color:
-                                        const Color(0xffFFFF).withOpacity(0.6),
+                                        const Color(0x00ffffff).withOpacity(0.6),
                                   ),
                                 ),
                                 SizedBox(height: 16.h),

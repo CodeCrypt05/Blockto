@@ -27,10 +27,10 @@ class OnBoardingScreen extends StatelessWidget {
                         onboardingScreenController.controller.jumpToPage(
                             onboardingScreenController.currentIndex.value);
                       },
-                      child: Container(
+                      child: SizedBox(
                         // color: Colors.pink,
                         height: 54.h,
-                        child: WideButtonWidget(buttonTitle: 'Next'),
+                        child: const WideButtonWidget(buttonTitle: 'Next'),
                       ),
                     ),
                   )
@@ -51,7 +51,7 @@ class OnBoardingScreen extends StatelessWidget {
                                 // margin: EdgeInsets.only(left: 24.w, right: 24.w, bottom: 30.h),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12.r),
-                                  border: Border.all(color: Color(0xffDB8C09)),
+                                  border: Border.all(color: const Color(0xffDB8C09)),
                                   color: Colors.black,
                                 ),
                                 width: MediaQuery.of(context).size.width,
@@ -59,7 +59,7 @@ class OnBoardingScreen extends StatelessWidget {
                                   child: Text(
                                     "Previous",
                                     style: TextStyle(
-                                        color: Color(0xffDB8C09),
+                                        color: const Color(0xffDB8C09),
                                         fontSize: 16.sp),
                                   ),
                                 ),
@@ -77,16 +77,16 @@ class OnBoardingScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   boxShadow: [
                                     BoxShadow(
-                                        color: Color(0xffDB8C09),
+                                        color: const Color(0xffDB8C09),
                                         spreadRadius: -0.7.h,
-                                        offset: Offset(0, 5)),
+                                        offset: const Offset(0, 5)),
                                     // BoxShadow(
                                     //     color: Color(0xff3d2690),
                                     //     spreadRadius: -0.7.h,
                                     //     offset: Offset(0, 5)),
                                   ],
                                   borderRadius: BorderRadius.circular(12.r),
-                                  color: Color(0xffDB8C09),
+                                  color: const Color(0xffDB8C09),
                                 ),
                                 width: MediaQuery.of(context).size.width,
                                 child: Center(
@@ -115,11 +115,11 @@ class OnBoardingScreen extends StatelessWidget {
                   color: Colors.black,
                   border: Border(
                       top:
-                          BorderSide(color: Color(0xffDB8C09).withOpacity(0.2)),
+                          BorderSide(color: const Color(0xffDB8C09).withOpacity(0.2)),
                       bottom:
-                          BorderSide(color: Color(0xffDB8C09).withOpacity(0.2)),
+                          BorderSide(color: const Color(0xffDB8C09).withOpacity(0.2)),
                       left: BorderSide(
-                          color: Color(0xffDB8C09).withOpacity(0.2))),
+                          color: const Color(0xffDB8C09).withOpacity(0.2))),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(1000.r),
                     topLeft: Radius.circular(1000.r),
@@ -131,7 +131,7 @@ class OnBoardingScreen extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.42,
                     width: MediaQuery.of(context).size.width * 0.45,
                     decoration: BoxDecoration(
-                      color: Color(0xffDB8C09).withOpacity(0.1),
+                      color: const Color(0xffDB8C09).withOpacity(0.1),
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(1000.r),
                         topLeft: Radius.circular(1000.r),
@@ -160,9 +160,9 @@ class OnBoardingScreen extends StatelessWidget {
                       "Skip",
                       style: TextStyle(
                         fontSize: 14.sp,
-                        color: Color(0xffDB8C09).withOpacity(0.6),
+                        color: const Color(0xffDB8C09).withOpacity(0.6),
                         decoration: TextDecoration.underline,
-                        decorationColor: Color(0xffDB8C09).withOpacity(0.6),
+                        decorationColor: const Color(0xffDB8C09).withOpacity(0.6),
                       ),
                     ),
                   ),
@@ -233,12 +233,12 @@ class OnBoardingScreen extends StatelessWidget {
                 style: TextStyle(
                     height: 1.1,
                     fontSize: 32.sp,
-                    color: Color(0xffDB8C09).withOpacity(0.8)))),
+                    color: const Color(0xffDB8C09).withOpacity(0.8)))),
         Padding(
             padding: EdgeInsets.only(bottom: 20.h),
             child: Text(title2,
                 style: TextStyle(
-                    height: 1.1, fontSize: 32.sp, color: Color(0xffDEDFF0)))),
+                    height: 1.1, fontSize: 32.sp, color: const Color(0xffDEDFF0)))),
         Text(subtitle,
             style: TextStyle(
                 fontSize: 16.sp,

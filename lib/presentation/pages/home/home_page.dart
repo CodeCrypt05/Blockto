@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                                   BImages.cryptoCard,
                                   fit: BoxFit.cover,
                                 ),
-                                Container(
+                                SizedBox(
                                   width: double.infinity,
                                   // color: Colors.blue.withOpacity(0.2),
                                   child: Column(
@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
                                                 Text(
                                                   "  Today's Profit",
                                                   style: TextStyle(
-                                                    color: Color(0xff494D58),
+                                                    color: const Color(0xff494D58),
                                                     fontSize: 14.sp,
                                                     fontWeight: FontWeight.w300,
                                                   ),

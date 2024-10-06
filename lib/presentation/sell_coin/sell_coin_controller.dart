@@ -27,7 +27,7 @@ class SellCoinController extends GetxController {
       }
     });
     currentCoinValue *= double.parse(sellCoinTextController.text);
-    print("value here: ${currentCoinValue}");
+    print("value here: $currentCoinValue");
     usdtPrice.value += currentCoinValue;
     print("value addition: ${usdtPrice.value}");
     try {

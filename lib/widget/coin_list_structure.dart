@@ -58,7 +58,7 @@ class CoinListStrucure extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               // color: Colors.amber.withOpacity(0.3),
               height: 30.h,
               width: 80.w,
@@ -83,7 +83,7 @@ class CoinListStrucure extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '\$ ' + item.currentPrice.toString(),
+                  '\$ ${item.currentPrice}',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.sp,
@@ -93,7 +93,7 @@ class CoinListStrucure extends StatelessWidget {
                 Text(
                   item.marketCapChangePercentage24H < 0
                       ? item.marketCapChangePercentage24H.toString()
-                      : '+ ' + item.marketCapChangePercentage24H.toString(),
+                      : '+ ${item.marketCapChangePercentage24H}',
                   style: TextStyle(
                     color: item.marketCapChangePercentage24H < 0
                         ? Colors.red
