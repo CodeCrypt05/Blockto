@@ -15,10 +15,6 @@ class PaperCryptoScreenController extends GetxController {
 
   // here handle the situation when user can perform this operation for 1 time after
   // that it will close
-  @override
-  void onInit() async {
-    super.onInit();
-  }
 
   Future<void> addCointoPortfolio(
     String imgUrl,

@@ -29,7 +29,7 @@ class EmptyNotificationScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 21.sp,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xffDB8C09),
+                  color: const Color(0xffDB8C09),
                 ),
               ),
               SizedBox(height: 12.sp),

@@ -5,7 +5,6 @@ import 'package:blockto_app/presentation/pages/market/market_page_controller.dar
 import 'package:blockto_app/widget/coin_list_structure.dart';
 import 'package:blockto_app/widget/custom_tabs.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -36,7 +35,7 @@ class MarketPage extends StatelessWidget {
                         ? allCoins(homePageController.coinMarketList)
                         : marketPageController.position.value == 1
                             ? watchList()
-                            : SizedBox.shrink(),
+                            : const SizedBox.shrink(),
                   ],
                 )
               : const NoInternetConnection(),

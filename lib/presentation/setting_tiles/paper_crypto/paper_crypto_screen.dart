@@ -3,7 +3,6 @@ import 'package:blockto_app/presentation/setting_tiles/paper_crypto/paper_crypto
 import 'package:blockto_app/utils/constants/image_constants.dart';
 import 'package:blockto_app/utils/validation/validation_mixin.dart';
 import 'package:blockto_app/widget/auth_button/auth_buttons.dart';
-import 'package:blockto_app/widget/common/custom_button.dart';
 import 'package:blockto_app/widget/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

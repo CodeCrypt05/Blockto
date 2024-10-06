@@ -1,12 +1,14 @@
 import 'dart:convert';
 
-import 'package:blockto_app/utils/constants/api_constants.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class CoinMarketApi {
+  final String baseURL = dotenv.env['BASE_URL'] ?? "";
+
   Future<List<dynamic>> getCoinMarketData() async {
     final response = await http.get(
-      Uri.parse("${BApi.baseUrl}coins/markets?vs_currency=usd&sparkline=true"),
+      Uri.parse("${baseURL}coins/markets?vs_currency=usd&sparkline=true"),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

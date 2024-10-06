@@ -14,7 +14,7 @@ class WideButtonWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 16.h, bottom: 16.h),
       decoration: BoxDecoration(
-        color: Color(0xffDB8C09),
+        color: const Color(0xffDB8C09),
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(

@@ -24,7 +24,7 @@ class AuthButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14.r),
-          color: Color(0xffF5C249),
+          color: const Color(0xffF5C249),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

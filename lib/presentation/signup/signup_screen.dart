@@ -203,7 +203,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                     children: [
                       Expanded(
                         child: Divider(
-                          color: Color(0xffF5C249).withOpacity(0.4),
+                          color: const Color(0xffF5C249).withOpacity(0.4),
                           thickness: 1.4,
                         ),
                       ),
@@ -214,13 +214,13 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xffF5C249).withOpacity(0.8),
+                            color: const Color(0xffF5C249).withOpacity(0.8),
                           ),
                         ),
                       ),
                       Expanded(
                         child: Divider(
-                          color: Color(0xffF5C249).withOpacity(0.4),
+                          color: const Color(0xffF5C249).withOpacity(0.4),
                           thickness: 1.4,
                         ),
                       ),
@@ -272,7 +272,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xffF5C249).withOpacity(0.6),
+                          color: const Color(0xffF5C249).withOpacity(0.6),
                         ),
                         children: [
                           TextSpan(
@@ -311,7 +311,7 @@ class _SignUpScreenState extends State<SignUpScreen> with ValidationsMixin {
         // color: Color(0xffF5C249).withOpacity(0.1),
         borderRadius: BorderRadius.circular(14.r),
         border: Border.all(
-          color: Color(0xffF5C249).withOpacity(0.4),
+          color: const Color(0xffF5C249).withOpacity(0.4),
         ),
       ),
       child: SvgPicture.asset(

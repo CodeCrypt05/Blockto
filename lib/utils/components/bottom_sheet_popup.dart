@@ -29,7 +29,7 @@ class CustomBottomSheetPopup {
       backgroundColor: Colors.transparent,
       context: context,
       builder: (BuildContext context) {
-        if (isShrink == null) isShrink = false;
+        isShrink ??= false;
         return AnimatedPadding(
           padding: MediaQuery.of(context).viewInsets,
           duration: const Duration(milliseconds: 600),
@@ -66,7 +66,7 @@ class CustomBottomSheetPopup {
                               ? EdgeInsets.all(2.h)
                               : EdgeInsets.all(10.h),
                           decoration: BoxDecoration(
-                            color: Color(0xff1C1E26),
+                            color: const Color(0xff1C1E26),
                             borderRadius: BorderRadius.circular(16.r),
                           ),
                           child: ic.contains('.gif')
@@ -107,7 +107,7 @@ class CustomBottomSheetPopup {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     isShrink!
-                        ? SizedBox.shrink()
+                        ? const SizedBox.shrink()
                         : Expanded(
                             child: CustomButton(
                               height: leftButtonHeight,
@@ -122,7 +122,7 @@ class CustomBottomSheetPopup {
                               onTap: cancelButtonPressed,
                             ),
                           ),
-                    isShrink! ? SizedBox.shrink() : SizedBox(width: 16.w),
+                    isShrink! ? const SizedBox.shrink() : SizedBox(width: 16.w),
                     Expanded(
                       child: CustomButton(
                         height: rightButtonHeight,

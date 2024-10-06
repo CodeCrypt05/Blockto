@@ -21,7 +21,7 @@ class _AbpoutUsScreenState extends State<AbpoutUsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(''),
+        title: const Text(''),
       ),
       body: SingleChildScrollView(
         child: Container(

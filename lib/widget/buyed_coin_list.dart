@@ -99,7 +99,7 @@ class BuyedCoinList extends StatelessWidget {
                 Text(
                   // double.parse(currentCoinValue) < 0
                   //     ? currentCoinValue.toString()
-                  '+ ' + currentCoinValue.toString(),
+                  '+ $currentCoinValue',
                   style: TextStyle(
                     color: currentCoinValue < 0 ? Colors.red : Colors.green,
                     fontSize: 12.sp,

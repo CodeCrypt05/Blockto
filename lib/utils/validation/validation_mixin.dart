@@ -4,7 +4,7 @@ mixin ValidationsMixin {
       return 'Please enter valid name';
     } else {
       //name regex
-      RegExp regex = new RegExp(r'^[A-Za-z\ ]+$');
+      RegExp regex = RegExp(r'^[A-Za-z\ ]+$');
       if (!regex.hasMatch(value)) {
         return 'Name Should only contain alphabets';
       } else {
@@ -48,11 +48,13 @@ mixin ValidationsMixin {
     if (coinPrice < 0.0 && coinPrice >= 100.0) {
       return 'the limit is assigned upto 100\$';
     }
+    return null;
   }
 
   String? validatedBlogContent(String? value) {
     if (value == null || value.isEmpty || value.length <= 3) {
       return 'Please enter valid title';
     }
+    return null;
   }
 }

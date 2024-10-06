@@ -44,11 +44,11 @@ class PortfolioPageController extends GetxController {
 
       double totalInvestment = 0;
 
-      snapshot.docs.forEach((doc) {
+      for (var doc in snapshot.docs) {
         String coinSymbol = doc.data()['coin_symbol'];
         double coinBought = doc.data()['coin_bought'];
         investmentMap[coinSymbol] = coinBought;
-      });
+      }
       totalInitialInvestment.value = totalInvestment;
       initialInvestmentMap.update((value) {
         value!.addAll(investmentMap); // Update the map with the new data
@@ -83,7 +83,7 @@ class PortfolioPageController extends GetxController {
           coinCount += totalPrice;
           coinPrice += newPrice;
           newPrices[symbol] = newPrice;
-          print("updated map: ${newPrice}");
+          print("updated map: $newPrice");
           totalCoinPrice.add(newPrice);
           coin.write('coins', newPrices);
         }

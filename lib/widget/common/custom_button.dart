@@ -44,7 +44,7 @@ class CustomButton extends StatelessWidget {
                   blurStyle: BlurStyle.solid,
                   // blurStyle: BlurStyle.inner,
                   color: boxShadowColor ?? Colors.transparent,
-                  offset: Offset(0, 4))
+                  offset: const Offset(0, 4))
             ]),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

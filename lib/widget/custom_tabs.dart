@@ -48,15 +48,15 @@ class _CustomTabsBarState extends State<CustomTabsBar> {
                   boxShadow: [
                     BoxShadow(
                       color: widget.marketController.position.value == index
-                          ? Color.fromARGB(15, 0, 0, 0)
+                          ? const Color.fromARGB(15, 0, 0, 0)
                           : Colors.transparent,
-                      offset: Offset(0, 9),
+                      offset: const Offset(0, 9),
                       blurRadius: 19,
                       blurStyle: BlurStyle.outer,
                     )
                   ],
                   color: widget.marketController.position.value == index
-                      ? Color(0xffF5C249)
+                      ? const Color(0xffF5C249)
                       : Colors.grey.withOpacity(0.2),
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -66,7 +66,7 @@ class _CustomTabsBarState extends State<CustomTabsBar> {
                   style: GoogleFonts.roboto(
                     color: widget.marketController.position.value == index
                         ? Colors.black.withOpacity(0.8)
-                        : Color(0xffC5C5C5),
+                        : const Color(0xffC5C5C5),
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w500,
                   ),

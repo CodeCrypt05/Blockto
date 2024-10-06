@@ -44,7 +44,7 @@ class SettingPage extends StatelessWidget {
                         CircleAvatar(
                           radius: 40.r,
                           backgroundColor: Colors.amberAccent,
-                          backgroundImage: AssetImage(BImages.imgProfile),
+                          backgroundImage: const AssetImage(BImages.imgProfile),
                         ),
                         SizedBox(width: 26.w),
                         Column(
