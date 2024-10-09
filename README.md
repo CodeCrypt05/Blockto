@@ -45,10 +45,10 @@ API_KEY = ""
 ```
 ### Screen shots
 <p align="center">
-  <img src = "https://github.com/user-attachments/assets/5ddb40df-0041-4396-b2aa-7ef92f86be1a" width="100%" height = "450">
+  <img src = "https://github.com/user-attachments/assets/5ddb40df-0041-4396-b2aa-7ef92f86be1a" width="100%" height = "350">
 </p>
 <p align="center">
-  <img src = "https://github.com/user-attachments/assets/b27d3cc7-0155-4644-9af6-0433b19562cc" width="100%" height = "450">
+  <img src = "https://github.com/user-attachments/assets/b27d3cc7-0155-4644-9af6-0433b19562cc" width="100%" height = "350">
 </p>
 
 ### License
